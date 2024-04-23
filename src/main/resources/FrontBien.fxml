@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontBien" stylesheets="styles.css">
+    <children>
+        <Label text="Biens Disponibles" textAlignment="CENTER" textFill="#1d92b9">
+            <font>
+                <Font name="Bauhaus 93" size="29.0" />
+            </font>
+        </Label>
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <content>
+                <TilePane fx:id="biensContainer" hgap="10.0" vgap="10.0" />
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>
