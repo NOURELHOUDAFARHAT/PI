@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.service.StaffController">
+    <children>
+        <AnchorPane layoutX="-58.0" prefHeight="400.0" prefWidth="700.0">
+            <children>
+
+                <TableView fx:id="StaffView" layoutX="63.0" layoutY="98.0" prefHeight="200.0" prefWidth="323.0">
+                    <columns>
+                        <TableColumn fx:id="I" prefWidth="63.600006103515625" text="Staff Id" />
+                        <TableColumn fx:id="N" prefWidth="105.20000457763672" text="Name" />
+                        <TableColumn fx:id="J" prefWidth="82.0" text="Job" />
+                        <TableColumn fx:id="S" prefWidth="71.0" text="Score" />
+
+                    </columns>
+                </TableView>
+                <Label layoutX="479.0" layoutY="95.0" text="Add a new Staff">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="400.0" layoutY="190.0" text="Name" />
+                <Label layoutX="400.0" layoutY="243.0" text="Job" />
+                <Label layoutX="400.0" layoutY="281.0" text="Score" />
+                <TextField fx:id="nameC" layoutX="520.0" layoutY="188.0" promptText="Max 10 caracteres" />
+                <TextField fx:id="jobC" layoutX="520.0" layoutY="239.0" promptText="Max 10 caracteres" />
+                <TextField fx:id="scoreC" layoutX="520.0" layoutY="277.0" promptText="soon" />
+
+                <Button fx:id="add" layoutX="579.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#Add" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #2b92b1;" text="Add" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+
+                <Label layoutX="224.0" layoutY="14.0" prefHeight="50.0" prefWidth="323.0" text="Staff Administration">
+                    <font>
+                        <Font name="Andalus" size="33.0" />
+                    </font>
+                </Label>
+                <Button fx:id="delete" layoutX="350.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#Delete" prefHeight="39.0" prefWidth="100.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="modify" layoutX="459.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#Modify" prefHeight="39.0" prefWidth="100.0" style="-fx-background-color: orange;" text="Modify" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="click" layoutX="76.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#Click" prefHeight="18.0" prefWidth="36.0" style="-fx-background-color: grey;" text="Modify" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Label layoutX="400.0" layoutY="142.0" text="ID" />
+                <TextField fx:id="idC" layoutX="520.0" layoutY="138.0" />
+            </children>
+        </AnchorPane>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.service.ServiceController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="700.0">
+            <children>
+                <Label layoutX="260.0" layoutY="14.0" prefHeight="54.0" prefWidth="247.0" text="Service Applies">
+                    <font>
+                        <Font name="Andalus" size="36.0" />
+                    </font>
+                </Label>
+                <TableView fx:id="serviceView" layoutX="124.0" layoutY="131.0" prefHeight="200.0" prefWidth="556.0">
+                    <columns>
+                        <TableColumn fx:id="I" prefWidth="95.0" text="Client Name" />
+                        <TableColumn fx:id="N" prefWidth="95.0" text="Client Name" />
+                        <TableColumn fx:id="P" minWidth="0.0" prefWidth="92.99998474121094" text="Phone" />
+                        <TableColumn fx:id="A" prefWidth="138.20001220703125" text="Address" />
+                        <TableColumn fx:id="T" prefWidth="105.60003662109375" text="Type" />
+                        <TableColumn fx:id="R" prefWidth="126.20001220703125" text="Rdv" />
+
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <VBox prefHeight="400.0" prefWidth="100.0" style="-fx-background-color: #2b92b1;" />
+        <Pane layoutY="70.0" prefHeight="7.0" prefWidth="700.0" style="-fx-background-color: #2b92b1;" />
+    </children>
+</AnchorPane>
