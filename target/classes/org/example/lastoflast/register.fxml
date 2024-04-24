@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="464.0" prefWidth="583.0" style="-fx-background-color: #0000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lastoflast.RegisterController">
+   <children>
+      <TextField fx:id="id_nom" alignment="CENTER" layoutX="170.0" layoutY="130.0" prefHeight="42.0" prefWidth="139.0" promptText="Nom" stylesheets="@../../../style/styleDash.css" />
+      <Label fx:id="error_nom" layoutX="92.0" layoutY="172.0" prefHeight="18.0" prefWidth="230.0" textFill="red" />
+      <TextField fx:id="id_prenom" alignment="CENTER" layoutX="358.0" layoutY="130.0" prefHeight="42.0" prefWidth="139.0" promptText="Prenom" stylesheets="@../../../style/styleDash.css" />
+      <Label fx:id="error_prenom" layoutX="328.0" layoutY="172.0" prefHeight="18.0" prefWidth="219.0" textFill="red" />
+      <TextField fx:id="id_email" alignment="CENTER" layoutX="169.0" layoutY="246.0" prefHeight="42.0" prefWidth="332.0" promptText="\@gmail.com" stylesheets="@../../../style/styleDash.css" />
+      <Label fx:id="error_email" layoutX="175.0" layoutY="288.0" prefHeight="18.0" prefWidth="332.0" textFill="red" />
+      <PasswordField fx:id="id_motdepasse" alignment="CENTER" layoutX="169.0" layoutY="311.0" prefHeight="42.0" prefWidth="332.0" promptText=" mot de passe" stylesheets="@../../../style/styleDash.css" />
+      <Label fx:id="error_motdepasse" layoutX="175.0" layoutY="354.0" prefHeight="18.0" prefWidth="332.0" textFill="red" />
+
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="461.0" layoutY="320.0">
+         <image>
+            <Image url="@../../../img/mot-de-passe.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_ajouter" layoutX="168.0" layoutY="372.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="26.0" prefWidth="354.0" styleClass="button_inscrit" stylesheets="@../../../style/styleDash.css" text="S’inscrire" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Hyperlink fx:id="seConnecter" layoutX="194.0" layoutY="47.0" onAction="#seConnecter" prefHeight="64.0" prefWidth="282.0" text="Inscription">
+         <font>
+            <Font name="System Bold" size="38.0" />
+         </font>
+      </Hyperlink>
+      <!-- ChoiceBox pour l'adresse -->
+      <ChoiceBox fx:id="id_adresse" layoutX="170.0" layoutY="190.0" prefHeight="42.0" prefWidth="139.0" stylesheets="@../../../style/styleDash.css">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+
+               <String fx:value="Ariana" />
+               <String fx:value="Beja" />
+               <String fx:value="Ben Arous" />
+            <String fx:value="Bizerte" />
+            <String fx:value="Gabes" />
+            <String fx:value="Gafsa" />
+            <String fx:value="Jendouba" />
+            <String fx:value="Kairouan" />
+            <String fx:value="Kasserine" />
+            <String fx:value="Kebili" />
+            <String fx:value="La Manouba" />
+            <String fx:value="Le Kef" />
+            <String fx:value="Mahdia" />
+            <String fx:value="Médenine" />
+            <String fx:value="Monastir" />
+            <String fx:value="Nabeul" />
+            <String fx:value="Sfax" />
+            <String fx:value="Sidi Bouzid" />
+            <String fx:value="Siliana" />
+            <String fx:value="Sousse" />
+            <String fx:value="Tataouine" />
+            <String fx:value="Tozeur" />
+            <String fx:value="Tunis" />
+            <String fx:value="Zaghouan" />
+         </FXCollections>
+      </items>
+      </ChoiceBox>
+
+      <!-- ChoiceBox pour le sexe -->
+      <ChoiceBox fx:id="id_sexe" layoutX="358.0" layoutY="190.0" prefHeight="42.0" prefWidth="139.0" stylesheets="@../../../style/styleDash.css">
+         <!-- Remplissage du sexe -->
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Homme" />
+               <String fx:value="Femme" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/logooo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="263.0" fitWidth="244.0" layoutX="-11.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Key-1--unscreen.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="180.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/gens.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="366.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/gens.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="263.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/bouton-daccueil.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="449.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/reglages.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="35.0" layoutX="180.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/email.png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="seConnecter1" layoutX="346.0" layoutY="398.0" onAction="#seConnecter" prefHeight="42.0" prefWidth="255.0" text=" vers la page connexion" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="124.0" fitWidth="156.0" layoutX="439.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/Agreement-rafiki.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
