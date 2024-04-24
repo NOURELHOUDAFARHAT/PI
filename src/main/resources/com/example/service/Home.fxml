@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.service.HomeController">
+    <children>
+        <Pane layoutX="-6.0" prefHeight="400.0" prefWidth="700.0">
+            <children>
+                <Pane layoutY="71.0" prefHeight="7.0" prefWidth="700.0" style="-fx-background-color: #2b92b1;" />
+                <Label layoutX="311.0" layoutY="14.0" text="TEST Page">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Label>
+                <VBox prefHeight="400.0" prefWidth="100.0" style="-fx-background-color: #2b92b1;" />
+                <Button fx:id="service" layoutX="137.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToServices" prefHeight="57.0" prefWidth="127.0" style="-fx-background-color: #d18a27;" text="Services" textFill="WHITE">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Button>
+              
+                <Button fx:id="staff" layoutX="508.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToStaff" prefHeight="57.0" prefWidth="127.0" style="-fx-background-color: #d18a27;" text="Staff" textFill="#f5f5f5">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                </Button>
+                <Button fx:id="apply" layoutX="320.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#goToApply" prefHeight="57.0" prefWidth="127.0" style="-fx-background-color: #d18a27;" text="Apply" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+
+</AnchorPane>
