@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="665.0" prefWidth="806.0" style="-fx-background-color: f8f4f0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Ala.Ala.controllers.reservationdesbiensController">
+   <children>
+      <ListView fx:id="mylist" layoutX="760.0" layoutY="116.0" prefHeight="481.0" prefWidth="529.0" />
+      <Text layoutX="46.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter reservation des biens" wrappingWidth="226.03125" />
+      <Text fx:id="msj" fill="#dc1414" layoutX="390.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label layoutX="1145.0" layoutY="21.0" prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="1239.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/images%20(2).jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="439.0" layoutY="37.0" prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="535.0" layoutY="37.0" prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <VBox layoutX="2.0" layoutY="79.0" prefHeight="554.0" prefWidth="314.0" spacing="15" stylesheets="@../../../style/style.css">
+         <styleClass>
+            <String fx:value="chosen-fruit-card" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Pane prefHeight="450.0" prefWidth="309.0">
+               <children>
+                  <Label fx:id="fruitNameLable11" layoutX="14.0" layoutY="21.0" prefHeight="44.0" prefWidth="293.0" textFill="#faeeee">
+                     <font>
+                        <Font name="Cambria" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="308.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane layoutX="4.0" layoutY="31.0" prefHeight="521.0" prefWidth="355.0">
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="308.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="144.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/location-voiture-tunise.jpg" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="prix" layoutX="19.0" layoutY="73.0" prefHeight="38.0" prefWidth="250.0" promptText="prix" />
+                        <DatePicker fx:id="date_debut" layoutX="19.0" layoutY="206.0" prefHeight="47.0" prefWidth="250.0" promptText="date debut" />
+                        <TextField fx:id="adresse" layoutX="19.0" layoutY="264.0" prefHeight="38.0" prefWidth="250.0" promptText="adresse" />
+                        <DatePicker fx:id="date_fin" layoutX="19.0" layoutY="137.0" prefHeight="47.0" prefWidth="250.0" promptText="date fin" />
+                        <TextField fx:id="nombredemembre" layoutX="19.0" layoutY="321.0" prefHeight="38.0" prefWidth="250.0" promptText="nombremembre" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="fruitNameLable111" layoutX="-15.0" layoutY="-3.0" prefHeight="44.0" prefWidth="293.0" textFill="#faeeee">
+                     <font>
+                        <Font name="Cambria" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="30.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/images.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="83.0" layoutX="259.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/agences-location-voitures-tiziouzou.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <HBox prefHeight="34.0" prefWidth="339.0" spacing="10">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#ipdateaction" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: green;" text="update" textFill="#fcfafa" />
+                  <Button mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: blue;" text="save" textFill="#e7e2e2" />
+                  <Button mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: red;" text="Delete" textFill="#fcfbfb" />
+               </children>
+            </HBox>
+            <Pane prefHeight="38.0" prefWidth="314.0" />
+            <HBox prefHeight="57.0" prefWidth="314.0" spacing="10" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
