@@ -29,25 +29,25 @@
          </font>
       </Text>
       <ChoiceBox fx:id="AdresseChoiceBox" layoutX="425.0" layoutY="118.0" prefHeight="35.0" prefWidth="150.0" styleClass="formInput" stylesheets="@styles/styleDash.css" />
-      <Text fill="#2b92b1" layoutX="361.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+      <Text fill="#2b92b1" layoutX="360.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
          <font>
             <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Text>
-      <ChoiceBox fx:id="TypeChoiceBox" layoutX="425.0" layoutY="160.0" prefHeight="35.0" prefWidth="150.0" styleClass="formInput" stylesheets="@styles/styleDash.css" />
+      <ChoiceBox fx:id="TypeChoiceBox" layoutX="425.0" layoutY="175.0" prefHeight="35.0" prefWidth="150.0" styleClass="formInput" stylesheets="@styles/styleDash.css" />
       <Text fill="#2b92b1" layoutX="54.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
          <font>
             <Font name="Berlin Sans FB" size="25.0" />
          </font>
       </Text>
-      <TextField fx:id="Prix_input" layoutX="166.0" layoutY="167.0" prefHeight="27.0" prefWidth="159.0" styleClass="formInput" stylesheets="@styles/styleDash.css" />
-      <Label fx:id="erreurPrixLabel" layoutX="246.0" layoutY="363.0" style="-fx-text-fill: red;" />
-      <Text fill="#2b92b1" layoutX="350.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" wrappingWidth="97.77947998046875">
+      <TextField fx:id="Prix_input" layoutX="166.0" layoutY="179.0" prefHeight="27.0" prefWidth="159.0" styleClass="formInput" stylesheets="@styles/styleDash.css" />
+      <Label fx:id="erreurPrixLabel" layoutX="174.0" layoutY="194.0" prefHeight="2.0" prefWidth="150.0" style="-fx-text-fill: red;" />
+      <Text fill="#2b92b1" layoutX="350.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image" wrappingWidth="97.77947998046875">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Button fx:id="button_Submit" layoutX="3.0" layoutY="266.0" mnemonicParsing="false" onAction="#ajouterBien" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" stylesheets="@styles/styleDash.css" text="Ajouter">
+      <Button fx:id="button_Submit" layoutX="28.0" layoutY="319.0" mnemonicParsing="false" onAction="#ajouterBien" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" stylesheets="@styles/styleDash.css" text="Ajouter">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
@@ -68,13 +68,13 @@
             </RadialGradient>
          </textFill>
       </Button>
-      <Button fx:id="button_Submit1" layoutX="3.0" layoutY="312.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="Afficher" textFill="WHITE">
+      <Button fx:id="button_Submit1" layoutX="215.0" layoutY="319.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="Afficher" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <ImageView fx:id="image_input" fitHeight="134.0" fitWidth="159.0" layoutX="427.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="Inserer" layoutX="441.0" layoutY="204.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Insérer" textFill="WHITE">
+      <ImageView fx:id="image_input" fitHeight="134.0" fitWidth="159.0" layoutX="429.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="Inserer" layoutX="441.0" layoutY="217.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Insérer" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="15.0" />
          </font>
@@ -85,7 +85,7 @@
             <Font name="Berlin Sans FB" size="19.0" />
          </font>
       </Text>
-      <ImageView fitHeight="134.0" fitWidth="150.0" layoutX="207.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="94.0" fitWidth="95.0" layoutX="489.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/House%20restyling%20(2).gif" />
          </image>
@@ -105,12 +105,12 @@
             <Image url="@images/bed_3912205.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="523.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="548.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/choice_11921633.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="288.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="301.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Coins-rafiki.png" />
          </image>
@@ -123,11 +123,6 @@
       <ImageView fitHeight="25.0" fitWidth="33.0" layoutX="274.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/bed_3912205.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="453.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/House%20searching-rafiki.png" />
          </image>
       </ImageView>
    </children>

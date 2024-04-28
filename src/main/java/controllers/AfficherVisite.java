@@ -84,7 +84,7 @@ public class AfficherVisite {
             ObservableList<Visite> observableList = FXCollections.observableList(visites);
             tableView.setItems(observableList);
 
-            idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+           // idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
             refCol.setCellValueFactory(new PropertyValueFactory<>("ref_B"));
             numCol.setCellValueFactory(new PropertyValueFactory<>("numero"));
             dateCol.setCellValueFactory(new PropertyValueFactory<>("date_visite"));

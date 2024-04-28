@@ -101,7 +101,7 @@ public class AfficherBien {
             ObservableList<Bien> observableList = FXCollections.observableList(biens);
             tableView.setItems(observableList);
 
-            refCol.setCellValueFactory(new PropertyValueFactory<>("refB"));
+          //  refCol.setCellValueFactory(new PropertyValueFactory<>("refB"));
             nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
             adressCol.setCellValueFactory(new PropertyValueFactory<>("adresse"));
             TypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -174,7 +174,6 @@ public class AfficherBien {
             double prixTND = bien.getPrix();
             double prixEUR = convertirTNDenEUR(prixTND, tauxChangeTND_EUR);
 
-            // Ensure that montantEURField is not null before setting text
             if (montantEURField != null) {
                 montantEURField.setText(String.valueOf(prixEUR));
             } else {
@@ -288,7 +287,7 @@ public class AfficherBien {
                 double montantEUR = convertirTNDenEUR(montantTND, tauxChangeTND_EUR);
                 montantEURField.setText(String.valueOf(montantEUR));
             } else {
-                // Gérer le cas où le champ montantTNDField est vide
+
             }
 
     }

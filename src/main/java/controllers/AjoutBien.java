@@ -79,7 +79,7 @@ public class AjoutBien {
         boolean prixValide = ValidationFormulaire.validerPrix(Prix_input, erreurPrixLabel);
 
         if (!nomValide || !prixValide) {
-            return; // Les validations ont échoué, arrêter le traitement.
+            return;
         }
 
         int nbrChambre = nbrChambreSpinner.getValue();

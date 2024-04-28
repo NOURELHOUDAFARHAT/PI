@@ -18,11 +18,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherVisite">
+<AnchorPane prefHeight="556.0" prefWidth="1136.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherVisite">
    <children>
-      <TableView fx:id="tableView" layoutX="451.0" layoutY="110.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="697.0">
+      <TableView fx:id="tableView" layoutX="476.0" layoutY="108.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="628.0">
          <columns>
-            <TableColumn fx:id="idCol" prefWidth="68.0" text="id" />
+
             <TableColumn fx:id="refCol" prefWidth="84.0" text="Ref" />
             <TableColumn fx:id="numCol" prefWidth="81.5999755859375" text="numero" />
             <TableColumn fx:id="dateCol" prefWidth="161.59991455078125" text="date visite" />
@@ -50,14 +50,14 @@
          </children>
       </Pane>
       <TextField fx:id="rechercheField" layoutX="673.0" layoutY="355.0" onKeyReleased="#onRechercheFieldTextChanged" />
-      <Button fx:id="modifierVisite" layoutX="586.0" layoutY="399.0" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="166.0" style="-fx-background-color: #d18a27;" styleClass="button_Submit" text="modifier" textFill="WHITE">
+      <Button fx:id="modifierVisite" layoutX="586.0" layoutY="399.0" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="166.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="modifier" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="19.0" />
+            <Font name="Berlin Sans FB" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="supprimerVisite" layoutX="790.0" layoutY="399.0" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #d18a27;" styleClass="button_Submit" text="supprimer" textFill="WHITE">
+      <Button fx:id="supprimerVisite" layoutX="790.0" layoutY="399.0" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="38.0" prefWidth="117.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="supprimer" textFill="WHITE">
          <font>
-            <Font name="Bauhaus 93" size="19.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="19.0" />
          </font>
       </Button>
       <Text fill="#2b92b1" layoutX="509.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche:" wrappingWidth="125.1324462890625">
@@ -68,27 +68,7 @@
       <TextField fx:id="numModif" layoutX="292.0" layoutY="223.0" />
       <TextField fx:id="nomModif" layoutX="292.0" layoutY="169.0" />
       <TextField fx:id="emailModif" layoutX="295.0" layoutY="351.0" />
-      <Text layoutX="189.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero">
-         <font>
-            <Font name="Berlin Sans FB" size="14.0" />
-         </font></Text>
-      <Text layoutX="184.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
-         </font></Text>
-      <Text layoutX="195.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Visite">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
-         </font></Text>
-      <Text layoutX="195.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
-         <font>
-            <Font name="Berlin Sans FB" size="16.0" />
-         </font></Text>
       <DatePicker fx:id="dateModif" layoutX="292.0" layoutY="288.0" prefHeight="26.0" prefWidth="150.0" />
-      <Text layoutX="197.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
-         </font></Text>
       <TextField fx:id="refModif" layoutX="295.0" layoutY="413.0" />
       <VBox layoutY="110.0" prefHeight="446.0" prefWidth="176.0" spacing="20.0">
          <children>
@@ -113,7 +93,7 @@
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" />
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
                      </image>
                   </ImageView>
                   <Label prefHeight="26.0" prefWidth="183.0" text="Metier1">
@@ -128,7 +108,7 @@
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" />
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stat.jpg" />
                      </image>
                   </ImageView>
                   <Label prefHeight="26.0" prefWidth="183.0" text="statistiques">
@@ -142,7 +122,7 @@
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" />
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/search.jpg" />
                      </image>
                   </ImageView>
                   <Label prefHeight="26.0" prefWidth="183.0" text="CHAT">
@@ -153,16 +133,33 @@
                </children>
             </HBox>
             <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: FF5058;" text="créer nouvelle visite">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" />
          </children>
       </VBox>
+      <Text fill="#2b92b1" layoutX="194.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="59.9078369140625">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="194.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date visite" wrappingWidth="100.0">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="186.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero" wrappingWidth="87.9078369140625">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="200.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.9078369140625">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="183.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference" wrappingWidth="181.50782012939453">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
