@@ -6,6 +6,11 @@ module com.example.projectpi {
     requires com.google.api.client;
     requires google.api.services.calendar.v3.rev305;
     requires com.google.api.client.json.jackson2;
+    requires java.desktop;
+    requires itextpdf;
+    requires java.mail;
+    requires activation;
+    requires org.apache.poi.poi;
     opens controllers;
     opens entities to javafx.base;
     exports controllers;

@@ -1,5 +1,13 @@
 package controllers;
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.awt.*;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
@@ -146,6 +154,67 @@ public class AfficherVisite {
         }
     }
 
+    public void generatePDF(Visite visite) {
+        Document document = new Document();
+
+        try {
+            // Spécifiez le chemin et le nom du fichier PDF
+            File file = new File("VisiteDetails.pdf");
+            PdfWriter.getInstance(document, new FileOutputStream(file));
+
+            // Ouvrir le document
+            document.open();
+
+            // Ajouter le logo en haut de la page
+            Image logo = Image.getInstance("@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" );
+            logo.setAlignment(Element.ALIGN_CENTER); // Alignement du logo au centre
+            logo.scaleToFit(150, 150); // Redimensionner le logo si nécessaire
+            document.add(logo);
+
+            // Ajouter le titre avec une couleur spécifique
+            Font titleFont = new Font(Font.FontFamily.HELVETICA, 22, Font.BOLD, new BaseColor(75, 0, 130)); // Couleur indigo
+            Paragraph title = new Paragraph("Détails de la Visite", titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            title.setSpacingAfter(20); // Espacement après le titre
+            document.add(title);
+
+            // Détails de la visite
+            Font normalFont = new Font(Font.FontFamily.HELVETICA, 12);
+            document.add(new Paragraph("Référence Bien: " + visite.getRef_B(), normalFont));
+            document.add(new Paragraph("Numéro: " + visite.getNumero(), normalFont));
+            document.add(new Paragraph("Date de Visite: " + visite.getDate_visite(), normalFont));
+            document.add(new Paragraph("Email: " + visite.getEmail(), normalFont));
+            document.add(new Paragraph("Nom: " + visite.getName(), normalFont));
+
+            // Fermer le document
+            document.close();
+
+            // Ouvrir le fichier PDF avec le programme par défaut
+            if (Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                if (desktop.isSupported(Desktop.Action.OPEN)) {
+                    desktop.open(file);
+                }
+            }
+
+        } catch (DocumentException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void genererPDFAction(ActionEvent event) {
+        Visite visite = tableView.getSelectionModel().getSelectedItem();
+        if (visite != null) {
+            generatePDF(visite);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Aucune visite sélectionnée");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner une visite.");
+            alert.showAndWait();
+        }
+    }
     @FXML
     void getData(MouseEvent event) {
         Visite visite = tableView.getSelectionModel().getSelectedItem();
@@ -218,9 +287,9 @@ public class AfficherVisite {
 
 
     @FXML
-    void naviguerVersBien(ActionEvent event) {
+    void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AjoutBien.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherBien.fxml"));
             refModif.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

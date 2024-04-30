@@ -1,10 +1,12 @@
 package services;
+
 import entities.Bien;
+
 import utils.MySQLConnector;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.SQLException;
 
 public class ServiceBien implements IServices<Bien> {
 
@@ -70,6 +72,7 @@ public class ServiceBien implements IServices<Bien> {
         }
         return biens;
     }
+
     public List<Bien> rechercher(String rechercheText) throws SQLException {
         String sql = "SELECT * FROM bien WHERE name LIKE ? OR adresse LIKE ? OR nbr_chambre = ? OR prix LIKE ? OR type LIKE ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -94,4 +97,30 @@ public class ServiceBien implements IServices<Bien> {
         }
         return biens;
     }
+    public List<Bien> rechercherAll() throws SQLException {
+        List<Bien> biens = new ArrayList<>();
+
+        String sql = "SELECT * FROM bien";
+        try (Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(sql)) {
+            while (rs.next()) {
+                Bien Bien = new Bien(
+                        rs.getInt("ref_b"),
+                        rs.getString("name"),
+                        rs.getString("adresse"),
+                        rs.getInt("nbr_chambre"),
+                        rs.getInt("prix"),
+                        rs.getString("type"),
+                        rs.getString("image")
+
+                );
+                Bien.setRefB(rs.getInt("ref_b"));
+                biens.add(Bien);
+            }
+        }
+
+        return biens;
+    }
+
+
 }

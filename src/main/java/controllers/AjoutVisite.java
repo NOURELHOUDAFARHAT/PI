@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.EmailSender;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,6 +49,10 @@ public class AjoutVisite {
 
     @FXML
     private Label errorLabelNum;
+
+    public ComboBox<String> getComboV() {
+        return comboV;
+    }
 
     private void populateComboBox() {
         ObservableList<String> nomMaisonList = FXCollections.observableArrayList();
@@ -143,8 +148,15 @@ public class AjoutVisite {
                     preparedStatement.setString(5, visit.getName());
                     int rowsAffected = preparedStatement.executeUpdate();
                     if (rowsAffected > 0) {
-                        showAlert(Alert.AlertType.INFORMATION, "Succès", null, "La demande de visite a été ajoutée avec succès.");
+                        EmailSender.sendWelcomeEmailWithSignature(visit.getEmail(), visit.getName());
+                        /*  Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                           successAlert.setTitle("Succès");
+                           successAlert.setHeaderText(null);
+                           successAlert.setContentText("La demande a été ajoutée avec succès.");
+                           successAlert.showAndWait();*/
                     }
+
+
                 }
             }
         } catch (NumberFormatException e) {
@@ -178,10 +190,12 @@ public class AjoutVisite {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
     private boolean isValidName(String name) {
         String nameRegex = "^[A-Za-z]+$";
         return Pattern.matches(nameRegex, name);
     }
+
     @FXML
     void naviguerVersAffichage(ActionEvent event) {
         try {
@@ -191,6 +205,7 @@ public class AjoutVisite {
             System.err.println(e.getMessage());
         }
     }
+
     private int getNomMaison(String nom) throws SQLException {
         int ref_b = -1;
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pi", "root", "");
@@ -204,6 +219,7 @@ public class AjoutVisite {
         }
         return ref_b;
     }
+
     private ObservableList<LocalDate> verifierDisponibilite(LocalDate dateVisite, int ref_b) {
         ObservableList<LocalDate> datesIndisponibles = FXCollections.observableArrayList();
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pi", "root", "");

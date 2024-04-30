@@ -93,6 +93,7 @@ public class AjoutBien {
         try {
             ServiceBien bs = new ServiceBien();
             bs.ajouter(bien);
+            chargerPageAffichage();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Succès");
             alert.setContentText("Bien ajouté");
@@ -104,16 +105,20 @@ public class AjoutBien {
             alert.showAndWait();
         }
     }
-
-    @FXML
-    void naviguezVersAffichage(ActionEvent event) {
+    private void chargerPageAffichage() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherBien.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherBien.fxml"));
+            Parent root = loader.load();
             AdresseChoiceBox.getScene().setRoot(root);
+
+            // Si votre contrôleur a besoin d'être initialisé après le chargement
+            // Exemple : AfficherBienController controller = loader.getController();
+            //           controller.init(); // Méthode personnalisée d'initialisation
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
+
 
     public List<String> getAdressesGouvernorats() {
         List<String> adressesGouvernorats = new ArrayList<>();
