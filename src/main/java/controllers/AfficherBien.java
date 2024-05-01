@@ -226,7 +226,7 @@ public class AfficherBien {
                     montantEURField.setText(String.valueOf(prix));
                 } else if (selectedDevise.equals("USD")) {
                     // Convertir le prix en USD (hypothétique, taux de change à définir)
-                    double tauxChangeEUR_USD = 1.18; // Par exemple
+                    double tauxChangeEUR_USD = 1.19; // Par exemple
                     double prixUSD = convertirEurToUsd(prix, tauxChangeEUR_USD);
                     montantEURField.setText(String.valueOf(prixUSD));
                 }} else {

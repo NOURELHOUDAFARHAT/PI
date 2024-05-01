@@ -23,9 +23,9 @@
    <children>
       <Pane layoutY="-6.0" prefHeight="110.0" prefWidth="973.0" style="-fx-background-color: #2b92b1;">
          <children>
-            <Label layoutX="367.0" layoutY="36.0" prefHeight="38.0" prefWidth="355.0" text="Liste Bien" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="384.0" layoutY="28.0" prefHeight="38.0" prefWidth="484.0" text="Liste Bien" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Berlin Sans FB" size="33.0" />
+                  <Font name="Berlin Sans FB" size="50.0" />
                </font>
             </Label>
             <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="14.0" pickOnBounds="true" smooth="false">
@@ -170,14 +170,14 @@
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/search.jpg" />
+                        <Image url="@images/images%20(1).png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="26.0" prefWidth="183.0" text="CHAT">
+                  <Button fx:id="bntExcel" mnemonicParsing="false" onAction="#bntExcel" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: #2b92b1;" text="Excel" textFill="WHITE">
                      <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
+                        <Font name="Berlin Sans FB" size="19.0" />
                      </font>
-                  </Label>
+                  </Button>
                </children>
             </HBox>
             <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
@@ -196,11 +196,6 @@
       </ImageView>
       <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="751.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
                         </ImageView>
-      <Button fx:id="bntExcel" layoutX="696.0" layoutY="437.0" mnemonicParsing="false" onAction="#bntExcel" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: #5ea648;">
-         <font>
-            <Font name="Bell MT" size="19.0" />
-         </font>
-      </Button>
 
    </children>
 </AnchorPane>

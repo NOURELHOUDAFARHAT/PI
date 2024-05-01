@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<VBox prefHeight="182.0" prefWidth="784.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontBien">
+<VBox prefWidth="784.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontBien">
     <children>
         <Label prefHeight="34.0" prefWidth="223.0" text="Biens Disponibles" textAlignment="CENTER" textFill="#1d92b9">
             <font>
@@ -20,7 +19,7 @@
             </font>
         </Label>
 
-        <HBox prefHeight="38.0" prefWidth="784.0" spacing="10">
+        <HBox spacing="10">
             <!-- ComboBox pour filtrer par type de bien -->
             <ComboBox fx:id="typeComboBox" promptText="Sélectionner un type" style="-fx-background-color: #1d92b9;">
                 <items>
@@ -35,25 +34,24 @@
 
             <!-- Contrôles pour la fourchette de prix -->
             <Label text="Prix minimal :">
-            <font>
-               <Font name="Berlin Sans FB" size="12.0" />
-            </font></Label>
+                <font>
+                    <Font name="Berlin Sans FB" size="12.0" />
+                </font>
+            </Label>
             <TextField fx:id="minPriceField" prefHeight="22.0" prefWidth="149.0" />
             <Label text="Prix maximal :" />
             <TextField fx:id="maxPriceField" prefHeight="3.0" prefWidth="147.0" />
-           
+
             <Button onAction="#resetFilters" style="-fx-background-color: #1d92b9;" text="Réinitialiser" textFill="WHITE" />
         </HBox>
 
         <ScrollPane fitToHeight="true" fitToWidth="true">
             <content>
-                <TilePane fx:id="biensContainer" hgap="10.0" prefHeight="100.0" prefWidth="782.0" vgap="10.0" />
+                <TilePane fx:id="biensContainer" hgap="10.0" prefWidth="782.0" vgap="5.0" VBox.vgrow="ALWAYS" />
             </content>
         </ScrollPane>
 
-        <Button onAction="#openChatBotDialog" prefHeight="26.0" prefWidth="524.0" style="-fx-background-color: #1d92b9;" text="ChatBien" textFill="#fff6f6">
-         <font>
-            <Font name="Berlin Sans FB" size="14.0" />
-         </font></Button>
+        <Button onAction="#openChatBotDialog" prefHeight="0.0" prefWidth="782.0" style="-fx-background-color: #1d92b9;" text="ChatBien" textFill="#fff6f6">
+        </Button>
     </children>
 </VBox>

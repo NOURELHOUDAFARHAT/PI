@@ -82,6 +82,7 @@ public class AjoutVisite {
     @FXML
     void initialize() {
         populateComboBox();
+
     }
 
     @FXML
@@ -121,13 +122,12 @@ public class AjoutVisite {
 
                         if (date.isBefore(LocalDate.now())) {
                             setDisable(true);
-                            setStyle("-fx-background-color: #FF0000;"); // Rouge
+                            setStyle("-fx-background-color: #FF0000;");
                         }
 
-                        // Mettre en évidence les dates indisponibles
                         if (indisponiblesDatesList.contains(date)) {
                             setDisable(true);
-                            setStyle("-fx-background-color: #FF0000;"); // Rouge
+                            setStyle("-fx-background-color: #FF0000;");
                         }
                     }
                 });

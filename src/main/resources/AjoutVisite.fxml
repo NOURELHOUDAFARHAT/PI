@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjoutVisite">
    <children>
       <TextField fx:id="nomV" layoutX="137.0" layoutY="113.0" />
@@ -57,6 +58,7 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
+
       <ImageView fitHeight="19.0" fitWidth="18.0" layoutX="269.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/pen_6355631.png" />
