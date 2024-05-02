@@ -126,7 +126,7 @@ public class AjoutBien {
         adressesGouvernorats.add("Béja");
         adressesGouvernorats.add("Ben Arous");
         adressesGouvernorats.add("Bizerte");
-        adressesGouvernorats.add("Gabès");
+        adressesGouvernorats.add("Gabes");
         adressesGouvernorats.add("Gafsa");
         adressesGouvernorats.add("Jendouba");
         adressesGouvernorats.add("Kairouan");

@@ -40,7 +40,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tableView" layoutX="481.0" layoutY="122.0" onMouseClicked="#getData" prefHeight="254.0" prefWidth="470.0">
+      <TableView fx:id="tableView" layoutX="487.0" layoutY="104.0" onMouseClicked="#getData" prefHeight="254.0" prefWidth="470.0">
          <columns>
 
             <TableColumn fx:id="nameCol" prefWidth="42.40003967285156" text="Name" />
@@ -51,7 +51,7 @@
             <TableColumn fx:id="imageCol" prefWidth="106.39999999999998" text="Image" />
          </columns>
       </TableView>
-      <TextField fx:id="rechercheField" layoutX="641.0" layoutY="489.0" onKeyReleased="#onRechercheFieldTextChanged" />
+      <TextField fx:id="rechercheField" layoutX="487.0" layoutY="364.0" onKeyReleased="#onRechercheFieldTextChanged" prefHeight="26.0" prefWidth="182.0" />
       <Text fill="#2b92b1" layoutX="193.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="59.9078369140625">
          <font>
             <Font name="Berlin Sans FB" size="22.0" />
@@ -86,29 +86,9 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Button fx:id="modifierBien" layoutX="642.0" layoutY="535.0" mnemonicParsing="false" onAction="#modifierBien" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="Modifier" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="20.0" />
-         </font>
-      </Button>
       <TextField fx:id="prixModif" layoutX="305.0" layoutY="337.0" styleClass="formInput" />
-      <Button fx:id="supprimerBien" layoutX="808.0" layoutY="535.0" mnemonicParsing="false" onAction="#supprimerBien" prefHeight="24.0" prefWidth="151.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="Supprimer" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="21.0" />
-         </font>
-      </Button>
       <ImageView fx:id="image_input" fitHeight="140.0" fitWidth="151.0" layoutX="290.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="Inserer" layoutX="481.0" layoutY="537.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="Insérer">
-         <font>
-            <Font name="Berlin Sans FB" size="19.0" />
-         </font>
-      </Button>
-      <Text fill="#2b92b1" layoutX="513.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche:" wrappingWidth="125.1324462890625">
-         <font>
-            <Font name="Berlin Sans FB" size="25.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="deviseComboBox" layoutX="884.0" layoutY="388.0">
+      <ComboBox fx:id="deviseComboBox" layoutX="877.0" layoutY="364.0">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="EUR" />
@@ -117,7 +97,7 @@
          </items>
       </ComboBox>
 
-      <TextField fx:id="montantEURField" layoutX="672.0" layoutY="388.0" prefWidth="200" promptText="Le prix convertit" />
+      <TextField fx:id="montantEURField" layoutX="672.0" layoutY="364.0" prefWidth="200" promptText="Le prix convertit" />
       <VBox layoutX="10.0" layoutY="113.0" prefHeight="446.0" prefWidth="176.0" spacing="20.0">
          <children>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="194.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
@@ -181,21 +161,51 @@
                </children>
             </HBox>
             <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/iconModif.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="modifierBien" mnemonicParsing="false" onAction="#modifierBien" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Modifier" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/iconDelete.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="supprimerBien" mnemonicParsing="false" onAction="#supprimerBien" prefHeight="24.0" prefWidth="151.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Supprimer" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="362.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/hotel_489870.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="Inserer" mnemonicParsing="false" onAction="#insertImage" prefHeight="34.0" prefWidth="183.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Insérer image" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="648.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/iconModif.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="808.0" layoutY="543.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/iconDelete.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="751.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
                         </ImageView>
-
+      <VBox fx:id="adresse" layoutX="480.0" layoutY="401.0" prefHeight="224.0" prefWidth="484.0" />
    </children>
 </AnchorPane>

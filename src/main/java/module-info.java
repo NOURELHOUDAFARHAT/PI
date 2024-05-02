@@ -11,6 +11,7 @@ module com.example.projectpi {
     requires java.mail;
     requires activation;
     requires org.apache.poi.poi;
+    requires com.gluonhq.maps;
     opens controllers;
     opens entities to javafx.base;
     exports controllers;

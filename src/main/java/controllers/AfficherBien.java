@@ -1,5 +1,14 @@
 package controllers;
 
+import com.gluonhq.maps.MapLayer;
+import com.gluonhq.maps.MapPoint;
+import com.gluonhq.maps.MapView;
+import javafx.geometry.Point2D;
+import javafx.scene.Node;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,9 +45,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
-
-
+import java.util.Map;
 
 
 public class AfficherBien {
@@ -115,11 +124,19 @@ public class AfficherBien {
     @FXML
     private Button bntExcel;
     private Connection connection;
+    @FXML
+    private VBox adresse;
 
+    private MapView mapView;
+    private final java.util.Map<String, MapPoint> destinationCoordinates = new HashMap<>();
+    private final MapPoint eiffelPoint = new MapPoint(48.8583701, 2.2944813);
+ //   Map map = new Map();
     @FXML
     void initialize() {
         rechercherBiens("");
-
+        mapView = createMapView();
+        adresse.getChildren().add(mapView);
+        VBox.setVgrow(mapView, Priority.ALWAYS);
          ServiceBien bienService = new ServiceBien();
         try {
             List<Bien> biens = bienService.afficher();
@@ -162,7 +179,59 @@ public class AfficherBien {
                 }
             }
         });
+        initializeDestinationCoordinates();
     }
+    private void initializeDestinationCoordinates() {
+        destinationCoordinates.put("Ariana", new MapPoint(36.8663, 10.1643));
+        destinationCoordinates.put("Beja", new MapPoint(36.7333, 9.1833));
+        destinationCoordinates.put("Ben Arous", new MapPoint(36.7226, 10.2424));
+        destinationCoordinates.put("Bizerte", new MapPoint(37.2744, 9.8733));
+        destinationCoordinates.put("Gabes", new MapPoint(33.8817, 10.0982));
+        destinationCoordinates.put("Gafsa", new MapPoint(34.425, 8.7841));
+        destinationCoordinates.put("Jendouba", new MapPoint(36.5018, 8.7801));
+        destinationCoordinates.put("Kairouan", new MapPoint(35.6804, 10.0982));
+        destinationCoordinates.put("Kasserine", new MapPoint(35.1676, 8.8283));
+        destinationCoordinates.put("Kebili", new MapPoint(33.7065, 8.9698));
+        destinationCoordinates.put("Kef", new MapPoint(36.1746, 8.7047));
+        destinationCoordinates.put("Mahdia", new MapPoint(35.5058, 11.0629));
+        destinationCoordinates.put("Manouba", new MapPoint(36.8101, 10.0973));
+        destinationCoordinates.put("Medenine", new MapPoint(33.3476, 10.4982));
+        destinationCoordinates.put("Monastir", new MapPoint(35.7836, 10.8264));
+        destinationCoordinates.put("Nabeul", new MapPoint(36.456, 10.7376));
+        destinationCoordinates.put("Sfax", new MapPoint(34.7397, 10.7592));
+        destinationCoordinates.put("Sidi Bouzid", new MapPoint(35.0366, 9.4859));
+        destinationCoordinates.put("Siliana", new MapPoint(36.0833, 9.3667));
+        destinationCoordinates.put("Sousse", new MapPoint(35.8254, 10.636));
+        destinationCoordinates.put("Tataouine", new MapPoint(32.9297, 10.4518));
+        destinationCoordinates.put("Tozeur", new MapPoint(33.9189, 8.1339));
+        destinationCoordinates.put("Tunis", new MapPoint(36.8065, 10.1815));
+        destinationCoordinates.put("Zaghouan", new MapPoint(36.4028, 10.1428));
+    }
+    private MapView createMapView() {
+        MapView mapView = new MapView();
+        mapView.setPrefSize(500, 400);
+        mapView.addLayer(new CustomMapLayer());
+        mapView.setZoom(15);
+        mapView.flyTo(0, eiffelPoint, 0.1);
+        return mapView;
+    }
+
+    private class CustomMapLayer extends MapLayer {
+        private final Node marker;
+
+        public CustomMapLayer() {
+            marker = new Circle(5, Color.RED);
+            getChildren().add(marker);
+        }
+
+        @Override
+        protected void layoutLayer() {
+            Point2D point = getMapPoint(eiffelPoint.getLatitude(), eiffelPoint.getLongitude());
+            marker.setTranslateX(point.getX());
+            marker.setTranslateY(point.getY());
+        }
+    }
+
     @FXML
     void modifierBien(ActionEvent event) {
         Bien bien = tableView.getSelectionModel().getSelectedItem();
@@ -240,7 +309,19 @@ public class AfficherBien {
                 }
             }
         }
+        updateMapPosition(bien.getAdresse());
     }
+    private void updateMapPosition(String destination) {
+        MapPoint destinationPoint = getDestinationCoordinates(destination);
+        if (mapView != null && destinationPoint != null) {
+            mapView.flyTo(0, destinationPoint, 0.1);
+        }
+    }
+
+    private MapPoint getDestinationCoordinates(String adresse) {
+        return destinationCoordinates.get(adresse);
+    }
+
     private double convertirEurToUsd(double montantEur, double tauxChange) {
         return montantEur * tauxChange;
     }
@@ -393,6 +474,7 @@ public class AfficherBien {
             System.err.println(e.getMessage());
         }
     }
+
   /*  private double convertirTNDenEUR(double montantTND, double tauxChange) {
         return montantTND / tauxChange;
     }*/
