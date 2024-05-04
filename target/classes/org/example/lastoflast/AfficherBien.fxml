@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherBien">
+   <children>
+      <ImageView blendMode="OVERLAY" fitHeight="426.0" fitWidth="969.0" layoutX="3.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/back_image.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutY="-6.0" prefHeight="100.0" prefWidth="974.0" style="-fx-background-color: #2b92b1;">
+         <children>
+            <Label layoutX="384.0" layoutY="28.0" prefHeight="38.0" prefWidth="484.0" text="Liste Bien" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutY="14.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" />
+               </image>
+               <styleClass>
+                  <String fx:value="envoyer_btn" />
+                  <String fx:value="content-area-circle-btns" />
+                  <String fx:value="img" />
+               </styleClass>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tableView" layoutX="469.0" layoutY="94.0" onMouseClicked="#getData" prefHeight="254.0" prefWidth="505.0">
+         <columns>
+
+            <TableColumn fx:id="nameCol" prefWidth="42.40003967285156" text="Name" />
+            <TableColumn fx:id="adressCol" prefWidth="87.20001220703125" text="Adresse" />
+            <TableColumn fx:id="TypeCol" prefWidth="48.79998779296875" text="Type" />
+            <TableColumn fx:id="prixCol" prefWidth="74.4000244140625" text="prix" />
+            <TableColumn fx:id="nbrChambreCol" prefWidth="107.20004272460938" text="nombre chambre" />
+            <TableColumn fx:id="imageCol" prefWidth="106.39999999999998" text="Image" />
+         </columns>
+      </TableView>
+      <TextField fx:id="rechercheField" layoutX="469.0" layoutY="351.0" onKeyReleased="#onRechercheFieldTextChanged" prefHeight="26.0" prefWidth="200.0" promptText="Recherche" />
+      <Text fill="#2b92b1" layoutX="193.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="59.9078369140625">
+         <font>
+            <Font name="Berlin Sans FB" size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nomModif" layoutX="305.0" layoutY="130.0" styleClass="formInput" />
+      <Text fill="#2b92b1" layoutX="196.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <TextField fx:id="adresseModif" layoutX="305.0" layoutY="191.0" styleClass="formInput" />
+      <TextField fx:id="nombreChambreModif" layoutX="305.0" layoutY="401.0" />
+      <Text fill="#2b92b1" layoutX="205.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chambre" wrappingWidth="125.1324462890625">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="199.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+         <font>
+            <Font name="Berlin Sans FB" size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="typeModif" layoutX="305.0" layoutY="273.0" styleClass="formInput" />
+      <Text fill="#2b92b1" layoutX="204.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
+         <font>
+            <Font name="Berlin Sans FB" size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#2b92b1" layoutX="199.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image">
+         <font>
+            <Font name="Berlin Sans FB" size="23.0" />
+         </font>
+      </Text>
+      <TextField fx:id="prixModif" layoutX="305.0" layoutY="337.0" styleClass="formInput" />
+      <ImageView fx:id="image_input" fitHeight="140.0" fitWidth="151.0" layoutX="304.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="deviseComboBox" layoutX="883.0" layoutY="351.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="EUR" />
+               <String fx:value="USD" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+
+      <TextField fx:id="montantEURField" layoutX="672.0" layoutY="351.0" prefWidth="200" promptText="Le prix convertit" />
+      <VBox layoutX="10.0" layoutY="113.0" prefHeight="446.0" prefWidth="176.0" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="194.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/arrow.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="Bt_Biens" mnemonicParsing="false" onAction="#naviguezVersAjout" prefHeight="38.0" prefWidth="130.0" style="-fx-background-color: #2b92b1;" text="Biens" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/arrow.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="Bt_visites" mnemonicParsing="false" onAction="#naviguezVersVisit" prefHeight="38.0" prefWidth="130.0" style="-fx-background-color: #2b92b1;" text="Visites" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="stat" mnemonicParsing="false" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #2b92b1;" text="statistiques" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/images%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="bntExcel" mnemonicParsing="false" onAction="#bntExcel" prefHeight="35.0" prefWidth="151.0" style="-fx-background-color: #2b92b1;" text="Excel" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/iconModif.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="modifierBien" mnemonicParsing="false" onAction="#modifierBien" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Modifier" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+               </children></HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="283.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/iconDelete.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="supprimerBien" mnemonicParsing="false" onAction="#supprimerBien" prefHeight="24.0" prefWidth="151.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Supprimer" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="362.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/hotel_489870.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="Inserer" mnemonicParsing="false" onAction="#insertImage" prefHeight="34.0" prefWidth="183.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Insérer image" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <ImageView fitHeight="30.0" fitWidth="41.0" layoutX="751.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+                        </ImageView>
+      <VBox fx:id="adresse" layoutX="487.0" layoutY="390.0" prefHeight="224.0" prefWidth="484.0" />
+   </children>
+</AnchorPane>
