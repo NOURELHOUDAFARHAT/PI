@@ -295,5 +295,13 @@ public class AfficherVisite {
             System.err.println(e.getMessage());
         }
     }
-
+    @FXML
+    void genererCalendar(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Calendrier.fxml"));
+            refModif.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
     }

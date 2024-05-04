@@ -18,9 +18,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="486.0" prefWidth="1148.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherVisite">
+<AnchorPane prefHeight="506.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherVisite">
    <children>
-      <TableView fx:id="tableView" layoutX="476.0" layoutY="108.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="628.0">
+      <ImageView blendMode="OVERLAY" fitHeight="396.0" fitWidth="1096.0" layoutX="42.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/back_image.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableView" layoutX="456.0" layoutY="120.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="634.0">
          <columns>
 
             <TableColumn fx:id="refCol" prefWidth="84.0" text="Ref" />
@@ -30,14 +35,14 @@
             <TableColumn fx:id="nameCol" prefWidth="81.5999755859375" text="name" />
          </columns>
       </TableView>
-      <Pane layoutX="-6.0" prefHeight="68.0" prefWidth="1154.0" style="-fx-background-color: #2b92b1;">
+      <Pane layoutX="-6.0" prefHeight="110.0" prefWidth="1098.0" style="-fx-background-color: #2b92b1;">
          <children>
             <Label layoutX="388.0" layoutY="19.0" prefHeight="38.0" prefWidth="355.0" text="Liste Visites" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="33.0" />
                </font>
             </Label>
-            <ImageView fitHeight="69.0" fitWidth="88.0" layoutX="8.0" pickOnBounds="true" smooth="false">
+            <ImageView fitHeight="83.0" fitWidth="88.0" layoutX="8.0" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" />
                </image>
@@ -49,22 +54,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TextField fx:id="rechercheField" layoutX="673.0" layoutY="355.0" onKeyReleased="#onRechercheFieldTextChanged" />
-      <Button fx:id="modifierVisite" layoutX="552.0" layoutY="399.0" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" text="modifier" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="19.0" />
-         </font>
-      </Button>
-      <Button fx:id="supprimerVisite" layoutX="749.0" layoutY="399.0" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="38.0" prefWidth="159.0" style="-fx-background-color: #d18#2b92b12 #d18#2b92b127;" styleClass="button_Submit" text="supprimer" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="19.0" />
-         </font>
-      </Button>
-      <Text fill="#2b92b1" layoutX="509.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recherche:" wrappingWidth="125.1324462890625">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
-         </font>
-      </Text>
+      <TextField fx:id="rechercheField" layoutX="625.0" layoutY="386.0" onKeyReleased="#onRechercheFieldTextChanged" prefHeight="26.0" prefWidth="345.0" promptText="Rechercher" />
       <TextField fx:id="numModif" layoutX="292.0" layoutY="223.0" />
       <TextField fx:id="nomModif" layoutX="292.0" layoutY="169.0" />
       <TextField fx:id="emailModif" layoutX="295.0" layoutY="351.0" />
@@ -79,7 +69,7 @@
                         <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/arrow.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="button_Submit1" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Biens" textFill="WHITE">
+                  <Button fx:id="button_Submit1" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Biens" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="20.0" />
                      </font>
@@ -89,74 +79,99 @@
                   <Insets top="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css" />
-            <Separator prefWidth="200.0" />
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="37.0" prefWidth="165.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="Calendar" onAction="#genererCalendar" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2b92b1;" text="Calendar" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children></HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="167.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Bt_PDF" onAction="#genererPDFAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2b92b1;" text="Générer PDF" textFill="WHITE">
+                  <Button fx:id="Bt_PDF1" onAction="#genererPDFAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2b92b1;" text="Générer PDF" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="48.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/search.jpg" />
+                        <Image url="@images/iconModif.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="26.0" prefWidth="183.0" text="CHAT">
+                  <Button fx:id="modifierVisite" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #2b92b1;" text="modifier" textFill="WHITE">
                      <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
+                        <Font name="Berlin Sans FB" size="19.0" />
                      </font>
-                  </Label>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="90.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/iconDelete.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css">
+                     <children>
+                        <Button fx:id="supprimerVisite" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="26.0" prefWidth="173.0" style="-fx-background-color: #2b92b1;" text="supprimer" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB" size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
             <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" />
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="225.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="styles.css" />
          </children>
       </VBox>
-      <Text fill="#2b92b1" layoutX="180.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="59.9078369140625">
+      <Text fill="#2b92b1" layoutX="192.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="59.9078369140625">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Text fill="#2b92b1" layoutX="176.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date visite" wrappingWidth="95.20001220703125">
+      <Text fill="#2b92b1" layoutX="188.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date visite" wrappingWidth="95.20001220703125">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Text fill="#2b92b1" layoutX="180.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero" wrappingWidth="87.9078369140625">
+      <Text fill="#2b92b1" layoutX="192.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero" wrappingWidth="87.9078369140625">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Text fill="#2b92b1" layoutX="176.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.9078369140625">
+      <Text fill="#2b92b1" layoutX="192.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.9078369140625">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Text fill="#2b92b1" layoutX="177.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien" wrappingWidth="181.50782012939453">
+      <Text fill="#2b92b1" layoutX="192.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bien" wrappingWidth="181.50782012939453">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="556.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/iconModif.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="30.0" layoutX="758.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/iconDelete.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

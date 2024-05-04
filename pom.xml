@@ -65,6 +65,11 @@
             <artifactId>controlsfx</artifactId>
             <version>11.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.jfxtras</groupId>
+            <artifactId>jfxtras-agenda</artifactId>
+            <version>8.0-r6</version>
+        </dependency>
 
         <dependency>
             <groupId>com.itextpdf</groupId>

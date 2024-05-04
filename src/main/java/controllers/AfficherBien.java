@@ -129,7 +129,7 @@ public class AfficherBien {
 
     private MapView mapView;
     private final java.util.Map<String, MapPoint> destinationCoordinates = new HashMap<>();
-    private final MapPoint eiffelPoint = new MapPoint(48.8583701, 2.2944813);
+    private final MapPoint eiffelPoint = new MapPoint(36.8065, 10.1815);
  //   Map map = new Map();
     @FXML
     void initialize() {
@@ -164,14 +164,8 @@ public class AfficherBien {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Stat.fxml"));
                     Parent root = fxmlLoader.load();
-
-                    // Create a new scene
                     Scene scene = new Scene(root);
-
-                    // Get the stage from the button's scene
                     Stage stage = (Stage) stat.getScene().getWindow();
-
-                    // Set the new scene
                     stage.setScene(scene);
                     stage.show();
                 } catch (IOException e) {
@@ -283,7 +277,7 @@ public class AfficherBien {
             nomModif.setText(bien.getName());
             adresseModif.setText(bien.getAdresse());
             nombreChambreModif.setText(String.valueOf(bien.getNbrChambre()));
-            prixModif.setText(String.valueOf(bien.getPrix()));
+            prixModif.setText(String.valueOf(bien.getPrix())); // Affiche le prix en TND
             typeModif.setText(bien.getType());
             image = bien.getImage();
 
@@ -292,14 +286,20 @@ public class AfficherBien {
 
             if (selectedDevise != null) {
                 if (selectedDevise.equals("EUR")) {
-                    montantEURField.setText(String.valueOf(prix));
+
+                    double tauxChangeTND_EUR = 0.30;
+                    double prixEUR = convertirTndToEur(prix, tauxChangeTND_EUR);
+                    montantEURField.setText(String.valueOf(prixEUR));
                 } else if (selectedDevise.equals("USD")) {
-                    // Convertir le prix en USD (hypothétique, taux de change à définir)
-                    double tauxChangeEUR_USD = 1.19; // Par exemple
+
+                    double tauxChangeEUR_USD = 0.32;
                     double prixUSD = convertirEurToUsd(prix, tauxChangeEUR_USD);
                     montantEURField.setText(String.valueOf(prixUSD));
-                }} else {
-                System.err.println("montantEURField is null");
+                } else {
+                    System.err.println("Devise non supportée : " + selectedDevise);
+                }
+            } else {
+                System.err.println("Aucune devise sélectionnée");
             }
 
             if (bien.getImage() != null && !bien.getImage().isEmpty()) {
@@ -311,6 +311,9 @@ public class AfficherBien {
         }
         updateMapPosition(bien.getAdresse());
     }
+
+
+
     private void updateMapPosition(String destination) {
         MapPoint destinationPoint = getDestinationCoordinates(destination);
         if (mapView != null && destinationPoint != null) {
@@ -438,8 +441,6 @@ public class AfficherBien {
         wb.write(fileOut);
         fileOut.close();
         resultSet.close();
-
-        // Ouvrir le fichier Excel après l'avoir créé dans un thread séparé
         new Thread(() -> {
             try {
                 openExcelFile(filePath);
@@ -475,9 +476,11 @@ public class AfficherBien {
         }
     }
 
-  /*  private double convertirTNDenEUR(double montantTND, double tauxChange) {
-        return montantTND / tauxChange;
-    }*/
+    private double convertirTndToEur(double montantTnd, double tauxChangeTndEur) {
+        return montantTnd * tauxChangeTndEur;
+    }
 
 
-}
+    }
+
+

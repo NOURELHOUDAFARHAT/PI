@@ -34,6 +34,23 @@ public class ServiceVisite implements IServices<Visite> {
         preparedStatement.setString(5, visite.getName());
         preparedStatement.executeUpdate();
     }
+    public List<Visite> getAllVisites() throws SQLException {
+        String sql = "SELECT * FROM visite";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        List<Visite> visites = new ArrayList<>();
+        while (rs.next()) {
+            Visite visite = new Visite();
+            visite.setId(rs.getInt("id"));
+            visite.setRef_B(rs.getInt("ref_b"));
+            visite.setNumero(rs.getInt("numero"));
+            visite.setDate_visite(rs.getDate("date_visite").toLocalDate());
+            visite.setEmail(rs.getString("email"));
+            visite.setName(rs.getString("name"));
+            visites.add(visite);
+        }
+        return visites;
+    }
 
     @Override
     public void modifier(Visite visite) throws SQLException {

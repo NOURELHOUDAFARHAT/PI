@@ -110,10 +110,6 @@ public class AjoutBien {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherBien.fxml"));
             Parent root = loader.load();
             AdresseChoiceBox.getScene().setRoot(root);
-
-            // Si votre contrôleur a besoin d'être initialisé après le chargement
-            // Exemple : AfficherBienController controller = loader.getController();
-            //           controller.init(); // Méthode personnalisée d'initialisation
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

@@ -12,6 +12,7 @@ module com.example.projectpi {
     requires activation;
     requires org.apache.poi.poi;
     requires com.gluonhq.maps;
+    requires jfxtras.agenda;
     opens controllers;
     opens entities to javafx.base;
     exports controllers;
