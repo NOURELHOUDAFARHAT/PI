@@ -40,22 +40,7 @@ public class UserService implements IService<User> {
             throw new RuntimeException(e);
         }
     }
-    public void updateUser(User user) {
-        String sql = "UPDATE user SET email=?, nom=?, prenom=?, adresse=?, sexe=? WHERE id=?";
-        try (PreparedStatement preparedStatement = cnx.prepareStatement(sql)) {
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getNom());
-            preparedStatement.setString(3, user.getPrenom());
-            preparedStatement.setString(4, user.getAdresse());
-            preparedStatement.setString(5, user.getSexe());
-            preparedStatement.setInt(6, user.getId());
 
-            preparedStatement.executeUpdate();
-            System.out.println("Utilisateur mis à jour avec succès !");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 
 
@@ -198,23 +183,25 @@ public class UserService implements IService<User> {
             throw new RuntimeException(e);
         }
     }
-    public void updateUserr(User user) {
-        String sql = "UPDATE user SET email=?, nom=?, prenom=?, adresse=?, sexe=? WHERE id=?";
+    public void updateUser(User user) {
+        String sql = "UPDATE user SET nom=?, prenom=?, adresse=?, sexe=? WHERE id=?";
         try (PreparedStatement preparedStatement = cnx.prepareStatement(sql)) {
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getNom());
-            preparedStatement.setString(3, user.getPrenom());
-            preparedStatement.setString(4, user.getAdresse());
-            preparedStatement.setString(5, user.getSexe());
-            preparedStatement.setInt(6, user.getId());
+            preparedStatement.setString(1, user.getNom());
+            preparedStatement.setString(2, user.getPrenom());
+            preparedStatement.setString(3, user.getAdresse());
+            preparedStatement.setString(4, user.getSexe());
+            preparedStatement.setInt(5, user.getId());
 
-            preparedStatement.executeUpdate();
-            System.out.println("Utilisateur mis à jour avec succès !");
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Profil utilisateur mis à jour avec succès !");
+            } else {
+                System.out.println("Échec de la mise à jour du profil utilisateur !");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 
 
 }

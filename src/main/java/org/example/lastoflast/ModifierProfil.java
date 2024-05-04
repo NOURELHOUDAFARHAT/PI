@@ -3,11 +3,18 @@ package org.example.lastoflast;
 import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import services.UserService;
 
+import java.io.IOException;
+
 public class ModifierProfil {
+    @FXML
+    private AnchorPane anchorPane; // Déclarez un champ anchorPane et ajoutez l'annotation @FXML
 
     @FXML
     private TextField id_nom;
@@ -16,10 +23,10 @@ public class ModifierProfil {
     private TextField id_prenom;
 
     @FXML
-    private TextField id_adresse;
+    private ChoiceBox<String> id_adresse; // Utilisez une ChoiceBox pour l'adresse
 
     @FXML
-    private TextField id_sexe;
+    private ChoiceBox<String> id_sexe; // Utilisez une ChoiceBox pour le sexe
 
     @FXML
     private Button btn_modifier;
@@ -38,31 +45,57 @@ public class ModifierProfil {
         // Récupération des informations de l'utilisateur connecté
         User loggedInUser = userService.getById(userId);
 
-        // Remplissage des champs de texte avec les informations de l'utilisateur
-        id_nom.setText(loggedInUser.getNom());
-        id_prenom.setText(loggedInUser.getPrenom());
-        id_adresse.setText(loggedInUser.getAdresse());
-        id_sexe.setText(loggedInUser.getSexe());
+        if (loggedInUser != null) {
+            // Remplissage des champs de texte avec les informations de l'utilisateur
+            id_nom.setText(loggedInUser.getNom());
+            id_prenom.setText(loggedInUser.getPrenom());
+
+            // Sélection de l'adresse et du sexe dans les ChoiceBox
+            id_adresse.setValue(loggedInUser.getAdresse());
+            id_sexe.setValue(loggedInUser.getSexe());
+        } else {
+            System.out.println("Utilisateur non trouvé !");
+        }
+
+        // Ajout des valeurs aux ChoiceBox
+        id_adresse.getItems().addAll(
+                "Ariana", "Beja", "Ben Arous", "Bizerte", "Gabes", "Gafsa", "Jendouba",
+                "Kairouan", "Kasserine", "Kebili", "La Manouba", "Le Kef", "Mahdia",
+                "Médenine", "Monastir", "Nabeul", "Sfax", "Sidi Bouzid", "Siliana",
+                "Sousse", "Tataouine", "Tozeur", "Tunis", "Zaghouan"
+        );
+
+        id_sexe.getItems().addAll("Homme", "Femme");
     }
 
     @FXML
     void modifierProfil(ActionEvent event) {
-        // Récupération des nouvelles valeurs des champs de texte
+        // Mise à jour du profil de l'utilisateur
         String nom = id_nom.getText();
         String prenom = id_prenom.getText();
-        String adresse = id_adresse.getText();
-        String sexe = id_sexe.getText();
-
-        // Obtention de l'identifiant de l'utilisateur connecté
+        String adresse = id_adresse.getValue();
+        String sexe = id_sexe.getValue();
         int userId = SeConnecter.getLoggedInUserId();
-
-        // Création d'un nouvel objet User avec les nouvelles valeurs
         User updatedUser = new User(userId, nom, prenom, adresse, sexe);
+        userService.update(updatedUser, userId);
 
-        // Appel de la méthode updateUser de UserService pour mettre à jour le profil de l'utilisateur
-        userService.updateUserr(updatedUser);
-
-        System.out.println("Profil utilisateur mis à jour avec succès !");
+        // Redirection vers la page HomeAll
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("HomeAll.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
-
+    @FXML
+    void retourVersHomeAll(ActionEvent event) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("HomeAll.fxml"));
+            anchorPane.getChildren().setAll(pane);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
+
+
