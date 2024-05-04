@@ -9,6 +9,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
@@ -26,9 +27,17 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/HelloApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/HelloController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/Home.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/HomeAll.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/ModifierProfil.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/ResetPassword.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/SeConnecter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lastoflast/ValidationFormulaireController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/securite/Credentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/securite/CustomSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/securite/PreferencesManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/securite/SessionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/securite/SessionFileManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/services/IService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
@@ -36,9 +45,12 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/Afficheradmin.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/CardUser.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/Home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/HomeAll.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/Seconnecter.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/modifierprofil.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/register.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lastoflast/resetPassword.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +61,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,7 +99,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Chappi/Desktop/study_land-developer",
+    "last_opened_file_path": "C:/Users/Chappi/Desktop/lastoflast",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,7 +118,7 @@
       <module name="lastoflast" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.lastoflast.*" />
+          <option name="PATTERN" value="securite.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,7 +181,26 @@
       <workItem from="1713888474267" duration="6214000" />
       <workItem from="1713897234331" duration="1199000" />
       <workItem from="1713905079251" duration="8030000" />
-      <workItem from="1713926378317" duration="2602000" />
+      <workItem from="1713926378317" duration="4604000" />
+      <workItem from="1714041050683" duration="221000" />
+      <workItem from="1714042418858" duration="337000" />
+      <workItem from="1714166707924" duration="2856000" />
+      <workItem from="1714170193425" duration="2249000" />
+      <workItem from="1714218128685" duration="296000" />
+      <workItem from="1714478531538" duration="4165000" />
+      <workItem from="1714483234688" duration="8222000" />
+      <workItem from="1714492466659" duration="918000" />
+      <workItem from="1714493780277" duration="1629000" />
+      <workItem from="1714501766150" duration="3628000" />
+      <workItem from="1714569121351" duration="5287000" />
+      <workItem from="1714575015590" duration="1214000" />
+      <workItem from="1714579881684" duration="6867000" />
+      <workItem from="1714656217740" duration="2149000" />
+      <workItem from="1714664815519" duration="443000" />
+      <workItem from="1714759877346" duration="17736000" />
+      <workItem from="1714786389933" duration="2234000" />
+      <workItem from="1714816006222" duration="6217000" />
+      <workItem from="1714825382526" duration="5926000" />
     </task>
     <servers />
   </component>

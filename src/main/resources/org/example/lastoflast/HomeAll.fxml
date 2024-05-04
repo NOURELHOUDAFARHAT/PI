@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="828.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lastoflast.HomeAll">
+   <children>
+      <BorderPane fx:id="borderPane" layoutX="175.0" layoutY="94.0" prefHeight="734.0" prefWidth="1128.0">
+         <center>
+            <StackPane fx:id="centerPane" prefHeight="634.0" prefWidth="1065.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <VBox fx:id="id_side_bar" alignment="TOP_CENTER" layoutX="11.0" layoutY="22.0" prefHeight="621.0" prefWidth="158.0" style="-fx-background-radius: 15 0 0 15;">
+         <children>
+
+            <Button fx:id="id_home" contentDisplay="TOP" mnemonicParsing="false" onAction="#home" prefHeight="72.0" prefWidth="123.0" text="Acceuill" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/10.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Poor Richard" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="id_panier" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="126.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="panier" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/paniers.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_formation" contentDisplay="TOP" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#formationApprenants" prefHeight="78.0" prefWidth="118.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="Formation" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/diplome.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="id_evaluation" contentDisplay="TOP" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#EvaluationFormateur" prefHeight="74.0" prefWidth="122.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="Evaluation" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/lune.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_projetApp" contentDisplay="TOP" mnemonicParsing="false" onAction="#afficherProjetApp" prefHeight="74.0" prefWidth="122.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="Projet" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/gestion-de-projet.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_parameter" contentDisplay="TOP" mnemonicParsing="false" onAction="#modification" prefHeight="70.0" prefWidth="120.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="Parametere" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fx:id="" fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/parametres-cog.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="forfaits" contentDisplay="TOP" mnemonicParsing="false" onAction="#Forfaits" prefHeight="76.0" prefWidth="121.0" styleClass="button3" stylesheets="@../../../../../../../study_land-developer/src/main/resources/style/styleDash.css" text="Forfaits" textFill="#2a3d9b">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../study_land-developer/src/main/resources/src/user_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_deconnecter" onAction="#seDeconnecter" prefHeight="26.0" prefWidth="146.0" styleClass="button_inscrit" stylesheets="@../../../style/styleDash.css" text="Se déconnecter" textFill="WHITE" />
+         </children>
+      </VBox>
+      <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_refresh" contentDisplay="TOP" layoutX="1071.0" layoutY="15.0" mnemonicParsing="false" onAction="#refreshData" prefHeight="34.0" prefWidth="33.0" textFill="#2a3d9b">
+         <font>
+            <Font name="Poor Richard" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="userEmailLabel" />
+   </children>
+</AnchorPane>
