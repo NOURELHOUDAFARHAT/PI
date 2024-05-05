@@ -20,9 +20,21 @@ import java.sql.*;
 import java.time.LocalDate;
 
 import javafx.scene.control.TextFormatter;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import securite.CustomSession;
 
 public class AjoutVisite {
+    private static String loggedInUserEmail;
+
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private BorderPane rootPane;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
 
     @FXML
     private Button Bt_visites;
@@ -84,8 +96,28 @@ public class AjoutVisite {
 
     @FXML
     void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
         populateComboBox();
 
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private List<LocalDate> verifierDisponibilite(int refB) throws SQLException {

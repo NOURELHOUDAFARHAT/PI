@@ -15,7 +15,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -26,6 +28,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import entities.Visite;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceVisite;
 
 import java.sql.SQLException;
@@ -34,7 +39,18 @@ import java.util.List;
 public class AfficherVisite {
 
     @FXML
+     private Label id_nom1;
+
+    @FXML
+    private Label userEmailLabel;
+
+    @FXML
     private Button Bt_Biens;
+    @FXML
+    private Button id_retour;
+    private static String loggedInUserEmail;
+
+
 
     @FXML
     private Button Bt_visites;
@@ -80,9 +96,14 @@ public class AfficherVisite {
 
     @FXML
     private TextField refModif;
+    @FXML
+    private BorderPane borderPane;
+
 
     @FXML
     void initialize() {
+
+
         rechercherVisites("");
         // ...
         ServiceVisite visiteService = new ServiceVisite();
@@ -103,6 +124,7 @@ public class AfficherVisite {
             e.printStackTrace();
         }
     }
+   
 
     @FXML
     void modifierVisite(ActionEvent event) {
@@ -165,7 +187,7 @@ public class AfficherVisite {
             document.open();
 
             // Ajouter le logo en haut de la page
-            Image logo = Image.getInstance("@../../../../../../../xampp/htdocs/Pidev/public/img/logooo.png" );
+            Image logo = Image.getInstance("C:\\Users\\Chappi\\Desktop\\lastoflast\\src\\main\\resources\\img\\logooo.png" );
             logo.setAlignment(Element.ALIGN_CENTER); // Alignement du logo au centre
             logo.scaleToFit(150, 150); // Redimensionner le logo si nécessaire
             document.add(logo);
@@ -302,5 +324,19 @@ public class AfficherVisite {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+    }
+    @FXML
+    void retour(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/org/example/lastoflast/AfficherBien.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            // Affichez une erreur si le chargement de la page de connexion échoue
+            System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
+        }
+
     }
     }

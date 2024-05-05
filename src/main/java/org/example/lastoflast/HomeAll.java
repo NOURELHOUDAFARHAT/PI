@@ -62,7 +62,7 @@ public class HomeAll {
     private Button forfaits;
 
     @FXML
-    private Button id_evaluation;
+    private Button id_activite;
 
     @FXML
     private Button id_home;
@@ -110,7 +110,18 @@ public class HomeAll {
     }
 
     @FXML
-    void EvaluationFormateur(ActionEvent event) {
+    void activite(ActionEvent event) {
+        // Redirection vers la page Modifierprofil
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("activite.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            // Gérer les erreurs de chargement de la page
+            ex.printStackTrace();
+        }
 
     }
 

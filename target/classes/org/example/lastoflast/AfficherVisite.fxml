@@ -25,7 +25,7 @@
             <Image url="@../../../images/back_image.jpg" />
          </image>
       </ImageView>
-      <TableView fx:id="tableView" layoutX="456.0" layoutY="120.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="634.0">
+      <TableView fx:id="tableView" layoutX="456.0" layoutY="120.0" onMouseClicked="#getData" prefHeight="230.0" prefWidth="634.0" stylesheets="@../../../styles/styleDash.css">
          <columns>
 
             <TableColumn fx:id="refCol" prefWidth="84.0" text="Ref" />
@@ -52,14 +52,15 @@
                   <String fx:value="img" />
                </styleClass>
             </ImageView>
+         
          </children>
       </Pane>
-      <TextField fx:id="rechercheField" layoutX="625.0" layoutY="386.0" onKeyReleased="#onRechercheFieldTextChanged" prefHeight="26.0" prefWidth="345.0" promptText="Rechercher" />
-      <TextField fx:id="numModif" layoutX="292.0" layoutY="223.0" />
-      <TextField fx:id="nomModif" layoutX="292.0" layoutY="169.0" />
-      <TextField fx:id="emailModif" layoutX="295.0" layoutY="351.0" />
-      <DatePicker fx:id="dateModif" layoutX="292.0" layoutY="288.0" prefHeight="26.0" prefWidth="150.0" />
-      <TextField fx:id="refModif" layoutX="295.0" layoutY="413.0" />
+      <TextField fx:id="rechercheField" layoutX="625.0" layoutY="386.0" onKeyReleased="#onRechercheFieldTextChanged" prefHeight="26.0" prefWidth="345.0" promptText="Rechercher" stylesheets="@../../../styles/styleDash.css" />
+      <TextField fx:id="numModif" layoutX="292.0" layoutY="223.0" stylesheets="@../../../styles/styleDash.css" />
+      <TextField fx:id="nomModif" layoutX="292.0" layoutY="169.0" stylesheets="@../../../styles/styleDash.css" />
+      <TextField fx:id="emailModif" layoutX="295.0" layoutY="351.0" stylesheets="@../../../styles/styleDash.css" />
+      <DatePicker fx:id="dateModif" layoutX="292.0" layoutY="288.0" prefHeight="26.0" prefWidth="150.0" stylesheets="@../../../styles/styleDash.css" />
+      <TextField fx:id="refModif" layoutX="295.0" layoutY="413.0" stylesheets="@../../../styles/styleDash.css" />
       <VBox layoutY="110.0" prefHeight="446.0" prefWidth="176.0" spacing="20.0">
          <children>
             <HBox alignment="CENTER" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
@@ -69,7 +70,7 @@
                         <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/arrow.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="button_Submit1" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #2b92b1;" styleClass="button_Submit" text="Biens" textFill="WHITE">
+                  <Button fx:id="button_Submit1" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="35.0" prefWidth="118.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="Biens" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="20.0" />
                      </font>
@@ -88,7 +89,7 @@
                               <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
                            </image>
                         </ImageView>
-                        <Button fx:id="Calendar" onAction="#genererCalendar" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2b92b1;" text="Calendar" textFill="WHITE">
+                        <Button fx:id="Calendar" onAction="#genererCalendar" prefHeight="34.0" prefWidth="110.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="Calendar" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB" size="16.0" />
                            </font>
@@ -103,7 +104,7 @@
                         <Image url="@../../../../../../../xampp/htdocs/Pidev/public/img/stack.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Bt_PDF1" onAction="#genererPDFAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #2b92b1;" text="Générer PDF" textFill="WHITE">
+                  <Button fx:id="Bt_PDF1" onAction="#genererPDFAction" prefHeight="34.0" prefWidth="110.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="Générer PDF" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="16.0" />
                      </font>
@@ -118,7 +119,7 @@
                         <Image url="@../../../images/iconModif.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="modifierVisite" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #2b92b1;" text="modifier" textFill="WHITE">
+                  <Button fx:id="modifierVisite" mnemonicParsing="false" onAction="#modifierVisite" prefHeight="38.0" prefWidth="116.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="modifier" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="19.0" />
                      </font>
@@ -134,7 +135,7 @@
                   </ImageView>
                   <HBox alignment="CENTER" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css">
                      <children>
-                        <Button fx:id="supprimerVisite" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="26.0" prefWidth="173.0" style="-fx-background-color: #2b92b1;" text="supprimer" textFill="WHITE">
+                        <Button fx:id="supprimerVisite" mnemonicParsing="false" onAction="#supprimerVisite" prefHeight="26.0" prefWidth="173.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="supprimer" textFill="WHITE">
                            <font>
                               <Font name="Berlin Sans FB" size="19.0" />
                            </font>
@@ -144,6 +145,11 @@
                </children>
             </HBox>
             <Separator layoutX="10.0" layoutY="87.0" prefWidth="200.0" />
+            <Button fx:id="id_retour" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="271.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="retour" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="19.0" />
+               </font>
+            </Button>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="128.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" />
             <HBox alignment="CENTER" layoutX="10.0" layoutY="225.0" prefHeight="38.0" prefWidth="121.0" spacing="15.0" styleClass="mouse-moved" stylesheets="../../../styles.css" />
          </children>
@@ -163,6 +169,7 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
+
       <Text fill="#2b92b1" layoutX="192.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="59.9078369140625">
          <font>
             <Font name="Berlin Sans FB" size="23.0" />
@@ -173,5 +180,7 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
+
+
    </children>
 </AnchorPane>

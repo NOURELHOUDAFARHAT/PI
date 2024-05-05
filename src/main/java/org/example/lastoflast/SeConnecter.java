@@ -1,8 +1,8 @@
 package org.example.lastoflast;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,12 +14,16 @@ import securite.SessionFileManager;
 import services.UserService;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class SeConnecter {
+public class SeConnecter  {
     @FXML
     private CheckBox rememberMeCheckbox;
 
-    private static int loggedInUserId; // Variable pour stocker l'ID de l'utilisateur connecté
+    private static int loggedInUserId;
 
     public static int getLoggedInUserId() {
         return loggedInUserId;
@@ -43,7 +47,6 @@ public class SeConnecter {
     @FXML
     private Label errorMdpLabel;
 
-    // Ajout de la session
     private static String loggedInUserEmail;
 
     public static String getLoggedInUserEmail() {
@@ -53,10 +56,15 @@ public class SeConnecter {
     @FXML
     private AnchorPane anchorPane;
 
-    // Autres annotations FXML et déclarations...
+    private int failedAttempts = 0;
+    private boolean fieldsDisabled = false;
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        retrieveSavedCredentials();
+    }
 
     @FXML
-    void seConnecter(ActionEvent event) {
+    void seConnecter(javafx.event.ActionEvent event) {
         String email = textFieldEmail.getText();
         String password = passwordFieldPassword.getText();
         boolean rememberMe = rememberMeCheckbox.isSelected();
@@ -64,39 +72,60 @@ public class SeConnecter {
         UserService userService = new UserService();
 
         if (userService.authenticate(email, password)) {
-            // Authentification réussie
             System.out.println("Utilisateur authentifié avec succès !");
-            int userId = userService.getUserIdByEmail(email); // Obtenir l'ID de l'utilisateur par son email
-            loggedInUserId = userId; // Stocker l'ID de l'utilisateur connecté
+            int userId = userService.getUserIdByEmail(email);
+            loggedInUserId = userId;
             loggedInUserEmail = email;
 
-            // Sauvegarde des informations d'identification si "Se souvenir de moi" est coché
             if (rememberMe) {
                 SessionFileManager.saveCredentials(email, password, rememberMe);
             }
 
-            // Redirection vers la page HomeAll
             if(email.equals("adminadminadmin@admin.com")) {
                 redirectToHome(event);
             }
             else {
-
                 redirectToHomeAll(event);
             }
         } else {
-            // Authentification échouée
             System.out.println("Vérifiez les données !");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur d'authentification");
             alert.setHeaderText("Échec de l'authentification");
             alert.setContentText("Veuillez vérifier vos informations d'identification et réessayer.");
             alert.showAndWait();
+
+            failedAttempts++;
+            if (failedAttempts >= 3 && !fieldsDisabled) {
+                disableFields();
+            }
         }
     }
 
-    // Méthode pour rediriger vers la page HomeAll
-    private void redirectToHomeAll(ActionEvent event) {
+    private void disableFields() {
+        textFieldEmail.setDisable(true);
+        passwordFieldPassword.setDisable(true);
+        fieldsDisabled = true;
 
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                enableFields();
+                failedAttempts = 0;
+                System.out.println("Les champs sont réactivés après 3 minutes.");
+                timer.cancel();
+            }
+        }, 3 * 60 * 1000);
+    }
+
+    private void enableFields() {
+        textFieldEmail.setDisable(false);
+        passwordFieldPassword.setDisable(false);
+        fieldsDisabled = false;
+    }
+
+    private void redirectToHomeAll(javafx.event.ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("HomeAll.fxml"));
             Scene scene = new Scene(root);
@@ -107,8 +136,8 @@ public class SeConnecter {
             ex.printStackTrace();
         }
     }
-    private void redirectToHome(ActionEvent event) {
 
+    private void redirectToHome(javafx.event.ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
             Scene scene = new Scene(root);
@@ -120,45 +149,35 @@ public class SeConnecter {
         }
     }
 
-    // Méthode pour récupérer les informations d'identification enregistrées
     private void retrieveSavedCredentials() {
         Credentials savedCredentials = SessionFileManager.retrieveSavedCredentials();
         if (savedCredentials != null) {
-            // Remplir les champs de texte avec les informations d'identification enregistrées
             textFieldEmail.setText(savedCredentials.getEmail());
             passwordFieldPassword.setText(savedCredentials.getPassword());
         }
     }
 
-    // Appeler retrieveSavedCredentials lors du chargement de l'interface utilisateur pour remplir automatiquement les champs
-    public void initialize() {
-        retrieveSavedCredentials();
-    }
-
     @FXML
-    void pageInscription(ActionEvent event) {
-
+    void pageInscription(javafx.event.ActionEvent event) {
         try {
             Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("register.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
     }
 
     @FXML
-    void mdpOublier(ActionEvent event) {
+    void mdpOublier(javafx.event.ActionEvent event) {
         try {
             Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("resetPassword.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

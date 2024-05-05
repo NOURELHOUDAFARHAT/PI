@@ -10,5 +10,7 @@ import java.util.List;
         public void supprimer (T t) throws SQLException;
         public List<T> afficher () throws SQLException;
 
+
+
     }
 

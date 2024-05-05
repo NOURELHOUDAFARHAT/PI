@@ -49,7 +49,7 @@ public class Afficheruser implements Initializable {
     @FXML
     private ChoiceBox<Boolean> activationChoiceBox;
 
-    private ObservableList<String> roleOptions = FXCollections.observableArrayList("ROLE_ADMIN", "");
+
     private ObservableList<Boolean> activationOptions = FXCollections.observableArrayList(true, false);
     private UserService userService = new UserService(); // Instance de UserService
 
@@ -134,29 +134,10 @@ public class Afficheruser implements Initializable {
         id_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         id_prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         id_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        id_role.setCellValueFactory(data -> {
-            String[] roles = data.getValue().getRoles();
-            if (roles != null) {
-                if (roles.length == 0) {
-                    return new SimpleStringProperty("[]");
-                } else {
-                    StringBuilder roleString = new StringBuilder("[");
-                    for (int i = 0; i < roles.length; i++) {
-                        roleString.append(roles[i]);
-                        if (i != roles.length - 1) {
-                            roleString.append(", ");
-                        }
-                    }
-                    roleString.append("]");
-                    return new SimpleStringProperty(roleString.toString());
-                }
-            } else {
-                return new SimpleStringProperty("[]");
-            }
-        });
+
         id_isActivated.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isIs_activated()));
 
-        roleChoiceBox.setItems(roleOptions);
+
         activationChoiceBox.setItems(activationOptions);
 
         tab_Admin.getItems().clear();
@@ -191,22 +172,11 @@ public class Afficheruser implements Initializable {
         TextField prenomField = new TextField(user.getPrenom());
         TextField emailField = new TextField(user.getEmail());
 
-        String[] roles = user.getRoles();
-        if (roles != null) {
-            boolean isAdmin = false;
-            for (String role : roles) {
-                if (role.equals("ROLE_ADMIN")) {
-                    isAdmin = true;
-                    break;
-                }
-            }
-            roleChoiceBox.setValue(isAdmin ? "ROLE_ADMIN" : "");
-        } else {
-            roleChoiceBox.setValue(""); // Si aucun rôle défini, sélectionnez une chaîne vide
-        }
+
+
         activationChoiceBox.setValue(user.isIs_activated());
 
-        dialog.getDialogPane().setContent(new VBox(10, new Label("Nom:"), nomField, new Label("Prénom:"), prenomField, new Label("Email:"), emailField, new Label("Role:"), roleChoiceBox, new Label("Activated:"), activationChoiceBox));
+        dialog.getDialogPane().setContent(new VBox(10, new Label("Nom:"), nomField, new Label("Prénom:"), prenomField, new Label("Email:"), emailField, new Label("Activated:"), activationChoiceBox));
 
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
@@ -216,12 +186,7 @@ public class Afficheruser implements Initializable {
                 user.setPrenom(prenomField.getText());
                 user.setEmail(emailField.getText());
                 // Assurez-vous que les rôles sont stockés dans le format correct
-                String selectedRole = roleChoiceBox.getValue();
-                if (selectedRole.isEmpty()) {
-                    user.setRoles(new String[]{});
-                } else {
-                    user.setRoles(new String[]{"\"" + selectedRole + "\""});
-                }
+
                 user.setisIs_activated(activationChoiceBox.getValue());
                 try {
                     userService.update(user, user.getId());

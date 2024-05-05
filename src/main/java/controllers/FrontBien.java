@@ -1,19 +1,23 @@
 package controllers;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import entities.Bien;
 import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceBien;
 
 import java.io.IOException;
@@ -26,9 +30,15 @@ public class FrontBien implements Initializable {
 
     @FXML
     private TilePane biensContainer;
+    @FXML
+    private Button id_retour;
 
     @FXML
     private ComboBox<String> typeComboBox;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
 
     @FXML
     private TextField minPriceField;
@@ -38,11 +48,22 @@ public class FrontBien implements Initializable {
 
     @FXML
     private AjoutVisite ajoutVisiteController; // Injectez AjoutVisite ici
+    @FXML
+    private BorderPane borderPane;
 
     private ServiceBien serviceBien;
+    private static String loggedInUserEmail;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
 
 
         serviceBien = new ServiceBien();
@@ -53,6 +74,18 @@ public class FrontBien implements Initializable {
         typeComboBox.setOnAction(event -> filterBiens());
         minPriceField.textProperty().addListener((observable, oldValue, newValue) -> filterBiens());
         maxPriceField.textProperty().addListener((observable, oldValue, newValue) -> filterBiens());
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void afficherTousBiens() {
@@ -128,7 +161,7 @@ public class FrontBien implements Initializable {
 
     private void addButtonToBienCard(StackPane bienCard, Bien bien) {
         Button addButton = new Button("Demander une visite");
-        addButton.getStyleClass().add("addbuttonevaluation");
+        addButton.getStyleClass().add("button_inscrit");
         addButton.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lastoflast/AjoutVisite.fxml"));
@@ -170,5 +203,19 @@ public class FrontBien implements Initializable {
     private void openChatBotDialog() {
         ChatBotDialog chatBotDialog = new ChatBotDialog();
         chatBotDialog.setVisible(true);
+    }
+    @FXML
+    void retour(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/org/example/lastoflast/HomeAll.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            // Affichez une erreur si le chargement de la page de connexion échoue
+            System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
+        }
+
     }
 }

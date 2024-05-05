@@ -204,5 +204,24 @@ public class UserService implements IService<User> {
     }
 
 
+    @Override
+    public void ajouter(User user) throws SQLException {
+
+    }
+
+    @Override
+    public void modifier(User user) throws SQLException {
+
+    }
+
+    @Override
+    public void supprimer(int id) throws SQLException {
+
+    }
+
+    @Override
+    public List<User> recuperer() throws SQLException {
+        return null;
+    }
 }
 

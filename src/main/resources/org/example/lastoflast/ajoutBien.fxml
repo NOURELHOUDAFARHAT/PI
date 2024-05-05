@@ -44,7 +44,7 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Text>
-      <Button fx:id="button_Submit" layoutX="212.0" layoutY="319.0" mnemonicParsing="false" onAction="#ajouterBien" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" stylesheets="@../../../styles/styleDash.css" text="Ajouter" textFill="WHITE">
+      <Button fx:id="button_Submit" layoutX="38.0" layoutY="263.0" mnemonicParsing="false" onAction="#ajouterBien" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" stylesheets="@../../../styles/styleDash.css" text="Ajouter" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
@@ -101,10 +101,15 @@
             <Image url="@../../../images/bed_3912205.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="221.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="27.0" fitWidth="25.0" layoutX="155.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/iconAdd.png" />
          </image>
       </ImageView>
+      <Button fx:id="id_retour" layoutX="34.0" layoutY="319.0" mnemonicParsing="false" onAction="#retour" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #d18#2b92b127;" styleClass="button_Submit" stylesheets="@../../../styles/styleDash.css" text="back" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

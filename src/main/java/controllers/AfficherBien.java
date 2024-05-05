@@ -5,6 +5,8 @@ import com.gluonhq.maps.MapPoint;
 import com.gluonhq.maps.MapView;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -29,6 +31,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceBien;
 import utils.MySQLConnector;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -51,6 +54,9 @@ import java.util.List;
 
 public class AfficherBien {
     private String image;
+    @FXML
+    private Button id_retour;
+
     @FXML
     private Button Inserer;
     @FXML
@@ -78,6 +84,7 @@ public class AfficherBien {
 
     @FXML
     private TextField montantTNDField;
+
 
     @FXML
     private TableColumn<Bien, Integer> prixCol;
@@ -125,6 +132,13 @@ public class AfficherBien {
     private Connection connection;
     @FXML
     private VBox adresse;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+    private static String loggedInUserEmail;
+    @FXML
+    private BorderPane borderPane;
 
     private MapView mapView;
     private final java.util.Map<String, MapPoint> destinationCoordinates = new HashMap<>();
@@ -132,6 +146,16 @@ public class AfficherBien {
  //   Map map = new Map();
     @FXML
     void initialize() {
+
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
+
         rechercherBiens("");
         mapView = createMapView();
         adresse.getChildren().add(mapView);
@@ -173,6 +197,18 @@ public class AfficherBien {
             }
         });
         initializeDestinationCoordinates();
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     private void initializeDestinationCoordinates() {
         destinationCoordinates.put("Ariana", new MapPoint(36.8663, 10.1643));
@@ -477,6 +513,20 @@ public class AfficherBien {
 
     private double convertirTndToEur(double montantTnd, double tauxChangeTndEur) {
         return montantTnd * tauxChangeTndEur;
+    }
+    @FXML
+    void retour(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/org/example/lastoflast/Home.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            // Affichez une erreur si le chargement de la page de connexion échoue
+            System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
+        }
+
     }
 
 

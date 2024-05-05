@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ActiviteController">
+
+    <children>
+        <VBox alignment="CENTER" layoutX="50.0" prefHeight="378.0" prefWidth="602.0" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Liste des Activités" textAlignment="RIGHT">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0" startX="0.26515150612050836" startY="0.7272727200479219">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.04349108412861824" blue="0.27000001072883606" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
+
+            <HBox spacing="20">
+                <VBox>
+                    <children>
+                        <ImageView fx:id="activite1" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../../../activite1.jpg" />
+                            </image>
+                        </ImageView>
+                        <Button onAction="#afficherDetails1" prefHeight="26.0" prefWidth="210.0" styleClass="button_inscrit" stylesheets="@styles.css" text="Afficher Détails" textFill="WHITE" />
+                    </children>
+                </VBox>
+
+                <VBox>
+                    <children>
+                        <ImageView fx:id="activite2" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../../../activite2.jpg" />
+                            </image>
+                        </ImageView>
+                        <Button onAction="#afficherDetails2" prefHeight="26.0" prefWidth="206.0" styleClass="button_inscrit" stylesheets="@styles.css" text="Afficher Détails" textFill="WHITE" />
+                    </children>
+                </VBox>
+
+                <VBox>
+                    <children>
+                        <ImageView fx:id="parachute" fitHeight="200.0" fitWidth="200.0">
+                            <image>
+                                <Image url="@../../../parachute.jpg" />
+                            </image>
+                        </ImageView>
+                        <Button onAction="#afficherDetails3" prefHeight="50.0" prefWidth="226.0" styleClass="button_inscrit" stylesheets="@styles.css" text="Afficher Détails" textFill="#f7f7f7" />
+                    </children>
+                </VBox>
+
+                <VBox />
+
+
+
+
+            </HBox>
+
+            <Label fx:id="statusLabel" />
+            <ImageView fx:id="qrCodeImageView" />
+
+
+            <Button layoutX="517.0" layoutY="85.0" mnemonicParsing="false" onAction="#initialize" prefHeight="26.0" prefWidth="543.0" styleClass="button_inscrit" stylesheets="@styles.css" text="afficher météo" textFill="#f7f7f7" />
+         <ImageView fitHeight="127.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../img/Untitled1.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="id_retour" layoutX="88.0" layoutY="388.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="543.0" styleClass="button_inscrit" stylesheets="@styles.css" text="retour vers la page d 'acceuil" textFill="#f7f7f7" />
+        </VBox>
+      <ImageView fitHeight="68.0" fitWidth="126.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/logooo.png" />
+         </image>
+      </ImageView>
+        <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userEmailLabel" />
+    </children>
+</AnchorPane>
