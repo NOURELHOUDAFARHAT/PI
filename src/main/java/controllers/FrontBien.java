@@ -43,6 +43,8 @@ public class FrontBien implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         serviceBien = new ServiceBien();
         afficherTousBiens();
 
