@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QRCodeController">
     <children>
@@ -13,6 +14,12 @@
         <Button layoutX="269.0" layoutY="66.0" mnemonicParsing="false" onAction="#generateQRCode" text="Générer QR Code" />
         <Label fx:id="statusLabel" layoutX="177.0" layoutY="191.0" prefHeight="29.0" prefWidth="246.0" />
         <ImageView fx:id="qrCodeImageView" fitHeight="262.0" fitWidth="300.0" layoutX="157.0" layoutY="106.0" />
+        <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userEmailLabel" prefHeight="18.0" prefWidth="497.0" />
     </children>
 
 </AnchorPane>

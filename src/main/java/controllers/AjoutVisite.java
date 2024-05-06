@@ -65,6 +65,7 @@ public class AjoutVisite {
     @FXML
     private Label errorLabelNum;
 
+
     public ComboBox<String> getComboV() {
         return comboV;
     }

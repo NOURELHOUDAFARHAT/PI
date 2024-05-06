@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import entities.Staff;
 import entities.activite;
@@ -31,6 +32,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import securite.CustomSession;
 import services.ServiceActivite;
 
 
@@ -105,12 +107,40 @@ public class AfficherActivite {
     @FXML
     private TableColumn<activite, String> typecol;
     private boolean triAscendant = true;
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+    private static String loggedInUserEmail;
+
 
 
     @FXML
     void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
         initializeTableView();
         chargerDonneesTableView();
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initializeTableView() {

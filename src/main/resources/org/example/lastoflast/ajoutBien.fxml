@@ -111,5 +111,11 @@
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
+      <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="userEmailLabel" />
    </children>
 </AnchorPane>

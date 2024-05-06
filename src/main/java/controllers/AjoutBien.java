@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceBien;
 
 import java.io.File;
@@ -54,9 +56,26 @@ public class AjoutBien {
 
     @FXML
     private ImageView image_input;
+    @FXML
+    private BorderPane rootPane;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+    private static String loggedInUserEmail;
+    @FXML
+    private BorderPane borderPane;
 
     @FXML
     void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
         adressesGouvernorats = FXCollections.observableArrayList(getAdressesGouvernorats());
         AdresseChoiceBox.setItems(adressesGouvernorats);
 
@@ -163,5 +182,17 @@ public class AjoutBien {
             System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
         }
 
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

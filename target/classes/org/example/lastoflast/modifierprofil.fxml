@@ -4,20 +4,108 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lastoflast.ModifierProfil">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="669.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lastoflast.ModifierProfil">
     <children>
-        <Label layoutX="53.0" layoutY="51.0" text="Nom" />
-        <Label layoutX="53.0" layoutY="97.0" text="Prénom" />
-        <Label layoutX="53.0" layoutY="143.0" text="Adresse" />
-        <Label layoutX="53.0" layoutY="190.0" text="Sexe" />
-        <TextField fx:id="id_nom" layoutX="186.0" layoutY="47.0" />
-        <TextField fx:id="id_prenom" layoutX="186.0" layoutY="93.0" />
-        <ChoiceBox fx:id="id_adresse" layoutX="186.0" layoutY="139.0" prefWidth="150.0" />
-        <ChoiceBox fx:id="id_sexe" layoutX="186.0" layoutY="186.0" prefWidth="150.0" />
-        <Button fx:id="btn_modifier" layoutX="261.0" layoutY="237.0" mnemonicParsing="false" onAction="#modifierProfil" text="Modifier" />
-        <Button fx:id="btn_retour" layoutX="50.0" layoutY="237.0" mnemonicParsing="false" onAction="#retourVersHomeAll" text="Retour" />
+      <ImageView blendMode="OVERLAY" fitHeight="290.0" fitWidth="669.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/back_image.jpg" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="OVERLAY" fitHeight="290.0" fitWidth="669.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/back_image.jpg" />
+         </image>
+      </ImageView>
+        <Label layoutX="44.0" layoutY="118.0" text="Nom" textFill="#0883ff">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font></Label>
+        <Label layoutX="44.0" layoutY="164.0" text="Prénom" textFill="#0883ff">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font></Label>
+        <Label layoutX="44.0" layoutY="210.0" text="Adresse" textFill="#0883ff">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font></Label>
+        <Label layoutX="44.0" layoutY="257.0" text="Sexe" textFill="#0883ff">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font></Label>
+        <TextField fx:id="id_nom" layoutX="177.0" layoutY="114.0" prefHeight="22.0" prefWidth="226.0" stylesheets="@../../../styles/styleDash.css" />
+        <TextField fx:id="id_prenom" layoutX="177.0" layoutY="160.0" prefHeight="22.0" prefWidth="226.0" stylesheets="@../../../styles/styleDash.css" />
+        <ChoiceBox fx:id="id_adresse" layoutX="177.0" layoutY="206.0" prefHeight="26.0" prefWidth="226.0" styleClass="combo-box" stylesheets="@../../../styles/styleDash.css" />
+        <ChoiceBox fx:id="id_sexe" layoutX="177.0" layoutY="253.0" prefHeight="26.0" prefWidth="226.0" styleClass="combo-box" stylesheets="@../../../styles/styleDash.css" />
+        <Button fx:id="btn_modifier" layoutX="15.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifierProfil" prefHeight="26.0" prefWidth="189.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="Modifier" textFill="WHITE" />
+        <Button fx:id="btn_retour" layoutX="393.0" layoutY="350.0" mnemonicParsing="false" onAction="#retourVersHomeAll" prefHeight="22.0" prefWidth="190.0" styleClass="button_inscrit" stylesheets="@../../../styles/styleDash.css" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font></Button>
+      <Label layoutX="182.0" layoutY="48.0" prefHeight="22.0" prefWidth="290.0" text="Modifier Profil " textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="41.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.5871212121212122" startY="0.6060606060606061">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.03999999910593033" green="0.16719381511211395" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fitHeight="73.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/logooo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="239.0" fitWidth="226.0" layoutX="429.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/aaaaaazaza.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="42.0" layoutX="370.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/pen_12608078.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="42.0" layoutX="370.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/gender-sign_11149196.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="42.0" layoutX="370.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/pen_12608078.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="42.0" layoutX="370.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/home_13318689.png" />
+         </image>
+      </ImageView>
+        <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userEmailLabel" />
 
     </children>
 </AnchorPane>

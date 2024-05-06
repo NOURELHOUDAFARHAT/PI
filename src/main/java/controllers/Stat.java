@@ -2,6 +2,9 @@ package controllers;
 
 
 import entities.Bien;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import securite.CustomSession;
 import services.ServiceBien;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +28,38 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class Stat implements Initializable {
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private BorderPane rootPane;
+    private static String loggedInUserEmail;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+    @FXML
+    public void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private Connection connection;
 
     public Stat() {

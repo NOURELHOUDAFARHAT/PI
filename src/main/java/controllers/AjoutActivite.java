@@ -12,9 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import entities.activite;
 import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceActivite;
 
 import java.io.File;
@@ -56,11 +58,29 @@ public class AjoutActivite {
 
     @FXML
     private TextField prix;
+    @FXML
+    private BorderPane rootPane;
+    private static String loggedInUserEmail;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+    @FXML
+    private BorderPane borderPane;
 
     private final ServiceActivite serviceActivite = new ServiceActivite(); // Créer une instance finale de ServiceActivite
 
     @FXML
-    void initialize() {
+    void initialize()
+    {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
         populateComboBox();
     }
 
@@ -213,6 +233,18 @@ public class AjoutActivite {
             System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
         }
 
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     }

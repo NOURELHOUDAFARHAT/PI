@@ -22,5 +22,11 @@
         </Label>
         <PieChart fx:id="pieChart" layoutX="237.0" layoutY="51.0" />
         <Button fx:id="btn_ret" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #2b92b1;" text="Retour" textFill="#f2efef" />
+        <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userEmailLabel" />
     </children>
 </AnchorPane>

@@ -4,6 +4,10 @@ import entities.Visite;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceVisite;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,6 +23,15 @@ import java.util.Collection;
 import java.util.Locale;
 
 public class Calendrier {
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private BorderPane rootPane;
+    private static String loggedInUserEmail;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
 
     @FXML
     private VBox calendrierBox;
@@ -29,6 +42,15 @@ public class Calendrier {
     }
 
     public void initialize() {
+
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
         // Create a new instance of the agenda
         Agenda agenda = new Agenda();
 
@@ -75,6 +97,19 @@ public class Calendrier {
             calendrierBox.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
+        }
+    }
+
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

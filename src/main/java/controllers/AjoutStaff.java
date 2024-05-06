@@ -3,18 +3,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import entities.Staff;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import securite.CustomSession;
 import services.ServiceStaff;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class AjoutStaff {
+
 
     @FXML
     private Button button_Submit;
@@ -35,6 +41,44 @@ public class AjoutStaff {
     private TextField typeStaff;
 
     private final ServiceStaff serviceStaff = new ServiceStaff();
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private BorderPane rootPane;
+    private static String loggedInUserEmail;
+    @FXML
+    private Label id_nom1;
+    @FXML
+    private Label userEmailLabel;
+
+
+    @FXML
+    public void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
+    }
+
+
+
+
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void ajouterStaff(ActionEvent event) {
@@ -79,8 +123,7 @@ public class AjoutStaff {
         return true;
     }
 
-    @FXML
-    private AnchorPane rootPane;
+
 
     @FXML
     void naviguerversaffichagestaff(ActionEvent event) {

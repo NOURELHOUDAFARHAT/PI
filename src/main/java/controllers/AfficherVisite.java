@@ -38,17 +38,13 @@ import java.util.List;
 
 public class AfficherVisite {
 
-    @FXML
-     private Label id_nom1;
 
-    @FXML
-    private Label userEmailLabel;
 
     @FXML
     private Button Bt_Biens;
     @FXML
     private Button id_retour;
-    private static String loggedInUserEmail;
+
 
 
 
@@ -98,10 +94,24 @@ public class AfficherVisite {
     private TextField refModif;
     @FXML
     private BorderPane borderPane;
-
+    @FXML
+    private javafx.scene.control.Label id_nom1;
+    @FXML
+    private javafx.scene.control.Label userEmailLabel;
+    private static String loggedInUserEmail;
+    @FXML
+    private BorderPane rootPane;
 
     @FXML
     void initialize() {
+        if (!CustomSession.isUserLoggedIn()) {
+            redirectToLoginPage();
+        } else {
+            String loggedInEmail = CustomSession.getLoggedInUserEmail();
+            id_nom1.setText(loggedInUserEmail);
+            userEmailLabel.setText(loggedInEmail);
+
+        }
 
 
         rechercherVisites("");
@@ -338,5 +348,17 @@ public class AfficherVisite {
             System.err.println("Erreur lors du chargement de la page de connexion : " + ex.getMessage());
         }
 
+    }
+    private void redirectToLoginPage() {
+        try {
+            // Chargement de la page de connexion
+            Parent loginPage = FXMLLoader.load(getClass().getResource("Seconnecter.fxml"));
+            Scene scene = new Scene(loginPage);
+            Stage stage = (Stage) borderPane.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     }

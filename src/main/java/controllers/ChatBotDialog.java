@@ -14,6 +14,7 @@ import java.util.Random;
 
 public class ChatBotDialog extends JFrame implements KeyListener {
 
+
     JPanel p = new JPanel();
     JTextArea dialog = new JTextArea(20, 50);
     JTextArea input = new JTextArea(1, 50);

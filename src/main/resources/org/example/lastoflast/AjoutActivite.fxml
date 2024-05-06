@@ -12,6 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="580.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjoutActivite">
     <children>
         <Text fill="#1527b0" layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" wrappingWidth="59.9078369140625">
@@ -132,5 +133,11 @@
             <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Button>
+        <Label fx:id="id_nom1" layoutX="778.0" layoutY="25.0" prefHeight="31.0" prefWidth="148.0" styleClass="text" textFill="#06007b">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Label fx:id="userEmailLabel" />
     </children>
 </AnchorPane>
