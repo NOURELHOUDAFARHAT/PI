@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+import entities.User;
 
 public class SeConnecter {
     @FXML
@@ -63,11 +64,13 @@ public class SeConnecter {
 
     @FXML
     void seConnecter(ActionEvent event) {
+
         String email = textFieldEmail.getText();
         String password = passwordFieldPassword.getText();
         boolean rememberMe = rememberMeCheckbox.isSelected();
 
         UserService userService = new UserService();
+        boolean isActivated = userService.getIsActivatedByEmail(email);
 
         if (userService.authenticate(email, password)) {
             // Authentification réussie
@@ -87,7 +90,13 @@ public class SeConnecter {
             }
             else {
 
-                redirectToHomeAll(event);
+                if (isActivated) {
+                    // Utilisateur activé, rediriger vers la page HomeAll
+                    redirectToHomeAll(event);
+                } else {
+                    // Utilisateur non activé, rediriger vers la page notfound444
+                    notfound444(event);
+                }
             }
         } else {
             // Authentification échouée
@@ -128,6 +137,18 @@ public class SeConnecter {
 
     // Méthode pour rediriger vers la page HomeAll
     private void redirectToHomeAll(ActionEvent event) {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("notfound.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    private void notfound444(ActionEvent event) {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("HomeAll.fxml"));

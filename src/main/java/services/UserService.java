@@ -15,6 +15,7 @@ import java.util.Arrays;
 
 
 public class UserService implements IService<User> {
+
     private Connection cnx;
 
     public UserService() {
@@ -223,5 +224,21 @@ public class UserService implements IService<User> {
     public List<User> recuperer() throws SQLException {
         return null;
     }
+    public boolean getIsActivatedByEmail(String email) {
+        String sql = "SELECT is_activated FROM user WHERE email=?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(sql)) {
+            preparedStatement.setString(1, email);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getBoolean("is_activated");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        // Si aucun utilisateur correspondant à cet e-mail n'est trouvé, retourne false par défaut
+        return false;
+    }
+
+
 }
 

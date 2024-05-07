@@ -16,6 +16,7 @@
     </properties>
 
     <dependencies>
+
         <!-- Dépendances du premier fichier POM -->
         <dependency>
             <groupId>com.mysql</groupId>

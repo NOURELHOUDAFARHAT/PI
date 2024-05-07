@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import services.UserService;
 
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -135,8 +134,15 @@ public class Afficheruser implements Initializable {
         id_prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         id_email.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        id_isActivated.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isIs_activated()));
-
+        id_isActivated.setCellValueFactory(cellData -> {
+            User user = cellData.getValue();
+            SimpleBooleanProperty booleanProperty = new SimpleBooleanProperty(user.isIs_activated());
+            booleanProperty.addListener((observable, oldValue, newValue) -> {
+                // Mettre à jour la valeur de la propriété dans l'objet User lorsque la valeur change
+                user.setisIs_activated(newValue);
+            });
+            return booleanProperty;
+        });
 
         activationChoiceBox.setItems(activationOptions);
 
@@ -172,22 +178,18 @@ public class Afficheruser implements Initializable {
         TextField prenomField = new TextField(user.getPrenom());
         TextField emailField = new TextField(user.getEmail());
 
-
-
         activationChoiceBox.setValue(user.isIs_activated());
-
         dialog.getDialogPane().setContent(new VBox(10, new Label("Nom:"), nomField, new Label("Prénom:"), prenomField, new Label("Email:"), emailField, new Label("Activated:"), activationChoiceBox));
-
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-
         dialog.setResultConverter(buttonType -> {
             if (buttonType == ButtonType.OK) {
                 user.setNom(nomField.getText());
                 user.setPrenom(prenomField.getText());
                 user.setEmail(emailField.getText());
+                user.setisIs_activated(activationChoiceBox.getValue());
                 // Assurez-vous que les rôles sont stockés dans le format correct
 
-                user.setisIs_activated(activationChoiceBox.getValue());
+
                 try {
                     userService.update(user, user.getId());
                     tab_Admin.refresh();
