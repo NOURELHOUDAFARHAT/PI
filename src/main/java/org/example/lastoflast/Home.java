@@ -76,10 +76,48 @@ public class Home {
             ex.printStackTrace(); // Afficher l'erreur complète pour le débogage
         }
     }
+
+    @FXML
+    void GoServ(ActionEvent event) {
+        try {
+            Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("ServiceApply.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Afficher l'erreur complète pour le débogage
+        }
+    }
     @FXML
     void afficherBien(ActionEvent event) {
         try {
             Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("AfficherBien.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Afficher l'erreur complète pour le débogage
+        }
+    }
+    @FXML
+    void goCar(ActionEvent event) {
+        try {
+            Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("voiture.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace(); // Afficher l'erreur complète pour le débogage
+        }
+    }
+
+    @FXML
+    void goReser(ActionEvent event) {
+        try {
+            Parent root = javafx.fxml.FXMLLoader.load(getClass().getResource("reservationVoiture.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);

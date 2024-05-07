@@ -18,11 +18,14 @@ module org.example.lastoflast {
 
     opens org.example.lastoflast to javafx.fxml;
     opens controllers;
+    opens controllers.ahmed;
     opens entities to javafx.base;
     opens securite to javafx.fxml;
 
+    opens entities.ahmed to javafx.base;
 
     exports controllers;
+    exports controllers.ahmed;
     exports test;
     exports org.example.lastoflast;
     exports securite;

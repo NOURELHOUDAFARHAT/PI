@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySQLConnector {
-    String url="jdbc:mysql://localhost:3306/pi";
+    String url="jdbc:mysql://localhost:3306/pi3";
     String login ="root";
     String pwd ="";
 

@@ -3,7 +3,7 @@ package securite;
 import java.io.*;
 
 public class SessionFileManager {
-    private static final String CREDENTIALS_FILE_PATH = "credentials.txt";
+    private static final String CREDENTIALS_FILE_PATH = "C:\\Users\\Ala\\PI-integration\\PI-integration\\src\\main\\java\\securite\\credentials.txt";
 
     public static void saveCredentials(String email, String password, boolean rememberMe) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CREDENTIALS_FILE_PATH))) {
