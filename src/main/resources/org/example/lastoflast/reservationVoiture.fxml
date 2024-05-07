@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="665.0" prefWidth="836.0" style="-fx-background-color: f8f4f0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReservationController">
+   <children>
+      <ListView fx:id="mylist" layoutX="362.0" layoutY="77.0" prefHeight="574.0" prefWidth="846.0" />
+      <Text layoutX="135.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Reservation" wrappingWidth="226.03125" />
+      <Text fx:id="msj" fill="#dc1414" layoutX="390.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label layoutX="1073.0" layoutY="-2.0" prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="1167.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/avatar.jpeg" />
+         </image>
+      </ImageView>
+      <Label layoutX="367.0" layoutY="14.0" prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="463.0" layoutY="14.0" prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="im2" fitHeight="74.0" fitWidth="83.0" layoutX="10.0" layoutY="10.0">
+         <image>
+            <Image url="@../../../assets/logo.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="-15.0" layoutY="66.0" prefHeight="75.0" prefWidth="324.0" />
+      <Pane layoutX="-10.0" layoutY="103.0" prefHeight="75.0" prefWidth="383.0" />
+      <VBox layoutX="10.0" layoutY="74.0" prefHeight="554.0" prefWidth="342.0" spacing="15" stylesheets="@../../../style/style.css">
+         <styleClass>
+            <String fx:value="chosen-fruit-card" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Label fx:id="fruitNameLable1" prefHeight="19.0" prefWidth="339.0" text=" Reserver Voiture" textFill="#faeeee">
+               <font>
+                  <Font name="Cambria" size="36.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="354.0" prefWidth="303.0">
+               <children>
+                  <TextField fx:id="prix" layoutX="51.0" layoutY="258.0" prefHeight="29.0" prefWidth="242.0" promptText="prix" />
+                  <DatePicker fx:id="date_debut" layoutX="45.0" layoutY="107.0" prefHeight="47.0" prefWidth="250.0" promptText="date debut" />
+                  <DatePicker fx:id="date_fin" layoutX="47.0" layoutY="191.0" prefHeight="47.0" prefWidth="250.0" promptText="date fin" />
+                  <ChoiceBox fx:id="idvoiture" layoutX="49.0" layoutY="305.0" prefHeight="26.0" prefWidth="242.0" />
+                  <Label fx:id="fruitNameLable11" layoutX="14.0" layoutY="21.0" prefHeight="44.0" prefWidth="293.0" textFill="#faeeee">
+                     <font>
+                        <Font name="Cambria" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="47.0" fitWidth="83.0" layoutX="32.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/images.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="184.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/location-voiture-tunise.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="308.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="282.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/agences-location-voitures-tiziouzou.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <HBox prefHeight="47.0" prefWidth="346.0" spacing="10">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: red;" styleClass="add-btn" stylesheets="@../../../style/style.css" text="Delete" textFill="#fcfbfb" />
+                  <Button mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: blue;" styleClass="add-btn" stylesheets="@../../../style/style.css" text="save" textFill="#e7e2e2" />
+                  <Button mnemonicParsing="false" onAction="#ipdateaction" prefHeight="26.0" prefWidth="102.0" style="-fx-background-color: green;" styleClass="add-btn" stylesheets="@../../../style/style.css" text="update" textFill="#fcfafa" />
+                  <Button fx:id="generatepdfid" layoutX="105.0" layoutY="12.0" mnemonicParsing="false" onAction="#makePdf" prefHeight="34.0" prefWidth="70.0" style="-fx-background-color: blue;" text="PDF" textAlignment="CENTER" textFill="WHITE" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#resbien" prefHeight="26.0" prefWidth="344.0" style="-fx-background-color: orange;" styleClass="add-btn" stylesheets="@../../../style/style.css" text="Reservation Bien" textFill="#fcfbfb" />
+         </children>
+      </VBox>
+      <Button layoutX="26.0" layoutY="627.0" mnemonicParsing="false" onAction="#back" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: grey;" styleClass="add-btn" stylesheets="@../../../style/style.css" text="Back" textFill="#fcfbfb" />
+   </children>
+</AnchorPane>

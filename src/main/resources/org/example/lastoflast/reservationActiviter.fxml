@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane prefHeight="667.0" prefWidth="926.0" style="-fx-background-color: f8f4f0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ReservationActiviterController">
+   <children>
+      <ListView fx:id="mylist" layoutX="358.0" layoutY="81.0" prefHeight="570.0" prefWidth="866.0" />
+      <Text layoutX="100.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Reservation Activiter" wrappingWidth="194.4000610351561" />
+      <Text fx:id="msj" fill="#dc1414" layoutX="390.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Label layoutX="1135.0" layoutY="11.0" prefHeight="62.0" prefWidth="100.0" text="My Account" textFill="#878787">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="1229.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/avatar.jpeg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="sortOptions" layoutX="888.0" layoutY="46.0" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Sort by Name"/>
+               <String fx:value="Sort by Type"/>
+            </FXCollections>
+         </items>
+      </ComboBox>
+
+      <Label layoutX="429.0" layoutY="27.0" prefHeight="29.0" prefWidth="88.0" text="language" textFill="#878787">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="525.0" layoutY="27.0" prefHeight="29.0" prefWidth="77.0" text="English" textFill="#878787" underline="true">
+         <font>
+            <Font name="Cambria" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="im2" fitHeight="74.0" fitWidth="83.0" layoutX="10.0" layoutY="10.0">
+         <image>
+            <Image url="@../../../assets/logo.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="9.0" layoutY="79.0" prefHeight="554.0" prefWidth="314.0" spacing="15" stylesheets="@../../../style/style.css">
+         <styleClass>
+            <String fx:value="chosen-fruit-card" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Pane prefHeight="354.0" prefWidth="312.0">
+               <children>
+                  <Label fx:id="fruitNameLable11" layoutX="14.0" layoutY="21.0" prefHeight="44.0" prefWidth="293.0" textFill="#faeeee">
+                     <font>
+                        <Font name="Cambria" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="308.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                  <Pane layoutX="4.0" layoutY="31.0" prefHeight="367.0" prefWidth="305.0">
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="83.0" layoutX="308.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="144.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/location-voiture-tunise.jpg" />
+                           </image>
+                        </ImageView>
+                        <DatePicker fx:id="date" layoutX="19.0" layoutY="95.0" prefHeight="47.0" prefWidth="250.0" promptText="date" />
+                        <TextField fx:id="prix" layoutX="19.0" layoutY="169.0" prefHeight="26.0" prefWidth="250.0" promptText="prix" />
+                        <TextField fx:id="type" layoutX="19.0" layoutY="218.0" prefHeight="26.0" prefWidth="250.0" promptText="type" />
+                        <TextField fx:id="nom" layoutX="19.0" layoutY="262.0" prefHeight="26.0" prefWidth="250.0" promptText="nom" />
+                        <Button layoutX="27.0" layoutY="310.0" mnemonicParsing="false" onAction="#deleteaction" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: red;" text="Delete" textFill="#fcfbfb" />
+                        <Button layoutX="119.0" layoutY="310.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: blue;" text="save" textFill="#e7e2e2" />
+                        <Button layoutX="204.0" layoutY="310.0" mnemonicParsing="false" onAction="#ipdateaction" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: green;" text="update" textFill="#fcfafa" />
+
+
+                     </children>
+                  </Pane>
+                  <Label fx:id="fruitNameLable111" layoutX="-15.0" layoutY="-3.0" prefHeight="44.0" prefWidth="293.0" textFill="#faeeee">
+                     <font>
+                        <Font name="Cambria" size="36.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="30.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/images.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="26.0" fitWidth="83.0" layoutX="259.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/agences-location-voitures-tiziouzou.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <HBox prefHeight="57.0" prefWidth="314.0" spacing="10" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

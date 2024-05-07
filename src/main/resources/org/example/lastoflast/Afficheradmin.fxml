@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lastoflast.Afficheruser">
+    <children>
+        <AnchorPane layoutX="-33.0" layoutY="-6.0" prefHeight="658.0" prefWidth="862.0">
+            <children>
+                <TableView fx:id="tab_Admin" layoutX="63.0" layoutY="30.0" prefHeight="488.0" prefWidth="758.0" stylesheets="@../../../style/styleDash.css">
+                    <columns>
+                        <TableColumn fx:id="id_nom" prefWidth="98.4000244140625" styleClass="table-view .column-header," text="Nom" />
+                        <TableColumn fx:id="id_prenom" prefWidth="176.79998779296875" styleClass="table-view .column-header" text="Prénom" />
+                        <TableColumn fx:id="id_email" prefWidth="168.79998779296875" styleClass=".table-view .column-header," text="Email" />
+                        <TableColumn fx:id="id_role" prefWidth="168.79998779296875" styleClass=".table-view .column-header," text="Role" />
+                        <TableColumn fx:id="id_isActivated" prefWidth="168.79998779296875" styleClass=".table-view .column-header," text="Activer/Desactiver" />
+                    </columns>
+                </TableView>
+
+                <Button fx:id="id_btn_back" layoutX="63.0" layoutY="529.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="758.0" styleClass="button_inscrit" stylesheets="@../../../style/styleDash.css" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font></Button>
+                <Button fx:id="id_btn_supprimer" layoutX="65.0" layoutY="566.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="26.0" prefWidth="758.0" styleClass="button_inscrit" stylesheets="@../../../style/styleDash.css" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font></Button>
+              <Button fx:id="id_btn_afficher_card" layoutX="65.0" layoutY="603.0" mnemonicParsing="false" onAction="#afficherCardUser" prefHeight="26.0" prefWidth="758.0" styleClass="button_inscrit" stylesheets="@../../../style/styleDash.css" text="Afficher la carte utilisateur" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+          <!-- Les ChoiceBox doivent être placés en dehors de la TableView -->
+          <ChoiceBox fx:id="roleChoiceBox" layoutY="-32.0" prefWidth="150.0" />
+          <ChoiceBox fx:id="activationChoiceBox" layoutX="166.0" layoutY="-45.0" prefWidth="150.0" />
+
+    </children>
+</AnchorPane>
